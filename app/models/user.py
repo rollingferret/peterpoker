@@ -16,9 +16,43 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.String(255), nullable=True)
     avatar_url = db.Column(db.String(255), nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    currentSimoleans = db.Column(db.Integer, nullable=False, default=0)
 
     tables = db.relationship(
-        'Table', back_populates='user', cascade="all, delete-orphan")
+        'Table', back_populates='user')
+    
+    seat1 = db.relationship(
+        'Table', foreign_keys=seat1, back_populates='seat1')
+
+    seat2 = db.relationship(
+        'Table', foreign_keys=seat2, back_populates='seat2')
+
+    seat3 = db.relationship(
+        'Table', foreign_keys=seat3, back_populates='seat3')
+
+    seat4 = db.relationship(
+        'Table', foreign_keys=seat4, back_populates='seat4')
+
+    seat5 = db.relationship(
+        'Table', foreign_keys=seat5, back_populates='seat5')
+
+    seat6 = db.relationship(
+        'Table', foreign_keys=seat6, back_populates='seat6')
+
+    seat7 = db.relationship(
+        'Table', foreign_keys=seat7, back_populates='seat7')
+
+    seat8 = db.relationship(
+        'Table', foreign_keys=seat8, back_populates='seat8')
+
+    seat9 = db.relationship(
+        'Table', foreign_keys=seat9, back_populates='seat9')
+
+    seat10 = db.relationship(
+        'Table', foreign_keys=seat10, back_populates='seat10')
+
+    gamelogs = db.relationship(
+        'GameLog', back_populates='user')
 
     followers = db.relationship(
     "User",
