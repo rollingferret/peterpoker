@@ -23,16 +23,16 @@ class Table(db.Model):
 
     # relationships
     user = db.relationship('User', back_populates='tables')
-    seat1 = db.relationship('User', foreign_keys=seat1, back_populates='tables')
-    seat2 = db.relationship('User', foreign_keys=seat2, back_populates='tables')
-    seat3 = db.relationship('User', foreign_keys=seat3, back_populates='tables')
-    seat4 = db.relationship('User', foreign_keys=seat4, back_populates='tables')
-    seat5 = db.relationship('User', foreign_keys=seat5, back_populates='tables')
-    seat6 = db.relationship('User', foreign_keys=seat6, back_populates='tables')
-    seat7 = db.relationship('User', foreign_keys=seat7, back_populates='tables')
-    seat8 = db.relationship('User', foreign_keys=seat8, back_populates='tables')
-    seat9 = db.relationship('User', foreign_keys=seat9, back_populates='tables')
-    seat10 = db.relationship('User', foreign_keys=seat10, back_populates='tables')
+    seat1 = db.relationship('User', foreign_keys='seat1', back_populates='tables')
+    seat2 = db.relationship('User', foreign_keys='seat2', back_populates='tables')
+    seat3 = db.relationship('User', foreign_keys='seat3', back_populates='tables')
+    seat4 = db.relationship('User', foreign_keys='seat4', back_populates='tables')
+    seat5 = db.relationship('User', foreign_keys='seat5', back_populates='tables')
+    seat6 = db.relationship('User', foreign_keys='seat6', back_populates='tables')
+    seat7 = db.relationship('User', foreign_keys='seat7', back_populates='tables')
+    seat8 = db.relationship('User', foreign_keys='seat8', back_populates='tables')
+    seat9 = db.relationship('User', foreign_keys='seat9', back_populates='tables')
+    seat10 = db.relationship('User', foreign_keys='seat10', back_populates='tables')
 
 
 
