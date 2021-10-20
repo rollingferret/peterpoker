@@ -133,3 +133,5 @@ of your Heroku app in the url and tag name:
    docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
    ```
 # peterpoker
+
+Now with more Peter!

@@ -2,14 +2,32 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-
+follows = db.Table(
+    "follows",
+    db.Column("follower_id", db.Integer, db.ForeignKey("users.id")),
+    db.Column("followed_id", db.Integer, db.ForeignKey("users.id"))
+)
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    bio = db.Column(db.String(255), nullable=True)
+    avatar_url = db.Column(db.String(255), nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    tables = db.relationship(
+        'Table', back_populates='user', cascade="all, delete-orphan")
+
+    followers = db.relationship(
+    "User",
+    secondary=follows,
+    primaryjoin=(follows.c.followed_id == id),
+    secondaryjoin=(follows.c.follower_id == id),
+    backref=db.backref("following", lazy="dynamic"),
+    lazy="dynamic"
+)
 
     @property
     def password(self):
@@ -26,5 +44,10 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'bio': self.bio,
+            'profile_url': self.avatar_url,
+            'followers': [follower.id for follower in self.followers],
+            'following': [following.id for following in self.following],
+            'table_ids': [table.id for table in self.tables]
         }
