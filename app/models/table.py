@@ -6,16 +6,16 @@ class Table(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     tableName = db.Column(db.String(255), nullable=True)
-    seat1 = db.Column(db.Integer, db.ForeignKey('seat1'), nullable=True)
-    seat2 = db.Column(db.Integer, db.ForeignKey('seat2'), nullable=True)
-    seat3 = db.Column(db.Integer, db.ForeignKey('seat3'), nullable=True)
-    seat4 = db.Column(db.Integer, db.ForeignKey('seat4'), nullable=True)
-    seat5 = db.Column(db.Integer, db.ForeignKey('seat5'), nullable=True)
-    seat6 = db.Column(db.Integer, db.ForeignKey('seat6'), nullable=True)
-    seat7 = db.Column(db.Integer, db.ForeignKey('seat7'), nullable=True)
-    seat8 = db.Column(db.Integer, db.ForeignKey('seat8'), nullable=True)
-    seat9 = db.Column(db.Integer, db.ForeignKey('seat9'), nullable=True)
-    seat10 = db.Column(db.Integer, db.ForeignKey('seat10'), nullable=True)
+    seat_1 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    seat_2 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    seat_3 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    seat_4 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    seat_5 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    seat_6 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    seat_7 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    seat_8 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    seat_9 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    seat_10 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
     currentTurn = db.Column(db.Integer, nullable=False)
     isActive = db.Column(db.Boolean, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
@@ -23,16 +23,16 @@ class Table(db.Model):
 
     # relationships
     user = db.relationship('User', back_populates='tables')
-    seat1 = db.relationship('User', foreign_keys='seat1', back_populates='tables')
-    seat2 = db.relationship('User', foreign_keys='seat2', back_populates='tables')
-    seat3 = db.relationship('User', foreign_keys='seat3', back_populates='tables')
-    seat4 = db.relationship('User', foreign_keys='seat4', back_populates='tables')
-    seat5 = db.relationship('User', foreign_keys='seat5', back_populates='tables')
-    seat6 = db.relationship('User', foreign_keys='seat6', back_populates='tables')
-    seat7 = db.relationship('User', foreign_keys='seat7', back_populates='tables')
-    seat8 = db.relationship('User', foreign_keys='seat8', back_populates='tables')
-    seat9 = db.relationship('User', foreign_keys='seat9', back_populates='tables')
-    seat10 = db.relationship('User', foreign_keys='seat10', back_populates='tables')
+    seat1 = db.relationship('User', foreign_keys=[seat_1], back_populates='tables')
+    seat2 = db.relationship('User', foreign_keys=[seat_2], back_populates='tables')
+    seat3 = db.relationship('User', foreign_keys=[seat_3], back_populates='tables')
+    seat4 = db.relationship('User', foreign_keys=[seat_4], back_populates='tables')
+    seat5 = db.relationship('User', foreign_keys=[seat_5], back_populates='tables')
+    seat6 = db.relationship('User', foreign_keys=[seat_6], back_populates='tables')
+    seat7 = db.relationship('User', foreign_keys=[seat_7], back_populates='tables')
+    seat8 = db.relationship('User', foreign_keys=[seat_8], back_populates='tables')
+    seat9 = db.relationship('User', foreign_keys=[seat_9], back_populates='tables')
+    seat10 = db.relationship('User', foreign_keys=[seat_10], back_populates='tables')
 
 
 
@@ -40,16 +40,16 @@ class Table(db.Model):
         return {
             'id': self.id,
             'tableName': self.tableName,
-            'seat1': self.user.to_dict(),
-            'seat2': self.user.to_dict(),
-            'seat3': self.user.to_dict(),
-            'seat4': self.user.to_dict(),
-            'seat5': self.user.to_dict(),
-            'seat6': self.user.to_dict(),
-            'seat7': self.user.to_dict(),
-            'seat8': self.user.to_dict(),
-            'seat9': self.user.to_dict(),
-            'seat10': self.user.to_dict(),
+            'seat1': self.seat1.to_dict(),
+            'seat2': self.seat2.to_dict(),
+            'seat3': self.seat3.to_dict(),
+            'seat4': self.seat4.to_dict(),
+            'seat5': self.seat5.to_dict(),
+            'seat6': self.seat6.to_dict(),
+            'seat7': self.seat7.to_dict(),
+            'seat8': self.seat8.to_dict(),
+            'seat9': self.seat9.to_dict(),
+            'seat10': self.seat10.to_dict(),
             'currentTurn': self.currentTurn,
             'isActive': self.isActive,
             'created_at': self.created_at,
