@@ -14,7 +14,11 @@ players_game = db.Table(
         db.Integer, 
         db.ForeignKey("users.id"), 
         primary_key=True
-    )
+    ),
+    db.Column(
+        "seatNumber",
+        db.Integer
+    ),
 )
 
 class GameTable(db.Model):
