@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: b8489ccf409d
-Revises: 3c2c7b17a19f
-Create Date: 2021-10-20 18:54:28.616522
+Revision ID: 2fc007407414
+Revises: ced04a462318
+Create Date: 2021-10-20 22:08:10.308713
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b8489ccf409d'
-down_revision = '3c2c7b17a19f'
+revision = '2fc007407414'
+down_revision = 'ced04a462318'
 branch_labels = None
 depends_on = None
 
@@ -26,14 +26,14 @@ def upgrade():
     op.add_column('tables', sa.Column('seat_8', sa.Integer(), nullable=True))
     op.add_column('tables', sa.Column('seat_9', sa.Integer(), nullable=True))
     op.add_column('tables', sa.Column('seat_10', sa.Integer(), nullable=True))
-    op.create_foreign_key(None, 'tables', 'users', ['seat_4'], ['id'])
-    op.create_foreign_key(None, 'tables', 'users', ['seat_9'], ['id'])
-    op.create_foreign_key(None, 'tables', 'users', ['seat_8'], ['id'])
-    op.create_foreign_key(None, 'tables', 'users', ['seat_3'], ['id'])
-    op.create_foreign_key(None, 'tables', 'users', ['seat_5'], ['id'])
     op.create_foreign_key(None, 'tables', 'users', ['seat_6'], ['id'])
     op.create_foreign_key(None, 'tables', 'users', ['seat_7'], ['id'])
+    op.create_foreign_key(None, 'tables', 'users', ['seat_9'], ['id'])
+    op.create_foreign_key(None, 'tables', 'users', ['seat_4'], ['id'])
+    op.create_foreign_key(None, 'tables', 'users', ['seat_5'], ['id'])
+    op.create_foreign_key(None, 'tables', 'users', ['seat_8'], ['id'])
     op.create_foreign_key(None, 'tables', 'users', ['seat_10'], ['id'])
+    op.create_foreign_key(None, 'tables', 'users', ['seat_3'], ['id'])
     # ### end Alembic commands ###
 
 
