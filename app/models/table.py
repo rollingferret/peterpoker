@@ -22,17 +22,17 @@ class Table(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False)
 
     # relationships
-    user = db.relationship('User', back_populates='tables')
-    seat1 = db.relationship('User', foreign_keys=[seat_1], back_populates='tables')
-    seat2 = db.relationship('User', foreign_keys=[seat_2], back_populates='tables')
-    seat3 = db.relationship('User', foreign_keys=[seat_3], back_populates='tables')
-    seat4 = db.relationship('User', foreign_keys=[seat_4], back_populates='tables')
-    seat5 = db.relationship('User', foreign_keys=[seat_5], back_populates='tables')
-    seat6 = db.relationship('User', foreign_keys=[seat_6], back_populates='tables')
-    seat7 = db.relationship('User', foreign_keys=[seat_7], back_populates='tables')
-    seat8 = db.relationship('User', foreign_keys=[seat_8], back_populates='tables')
-    seat9 = db.relationship('User', foreign_keys=[seat_9], back_populates='tables')
-    seat10 = db.relationship('User', foreign_keys=[seat_10], back_populates='tables')
+    user = db.relationship('User', uselist=False, back_populates='tables')
+    seat1 = db.relationship('User', foreign_keys=[seat_1], uselist=False, back_populates='tables')
+    seat2 = db.relationship('User', foreign_keys=[seat_2], uselist=False, back_populates='tables')
+    seat3 = db.relationship('User', foreign_keys=[seat_3], uselist=False, back_populates='tables')
+    seat4 = db.relationship('User', foreign_keys=[seat_4], uselist=False, back_populates='tables')
+    seat5 = db.relationship('User', foreign_keys=[seat_5], uselist=False, back_populates='tables')
+    seat6 = db.relationship('User', foreign_keys=[seat_6], uselist=False, back_populates='tables')
+    seat7 = db.relationship('User', foreign_keys=[seat_7], uselist=False, back_populates='tables')
+    seat8 = db.relationship('User', foreign_keys=[seat_8], uselist=False, back_populates='tables')
+    seat9 = db.relationship('User', foreign_keys=[seat_9], uselist=False, back_populates='tables')
+    seat10 = db.relationship('User', foreign_keys=[seat_10], uselist=False, back_populates='tables')
 
 
 
