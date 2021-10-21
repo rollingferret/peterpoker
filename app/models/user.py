@@ -2,6 +2,8 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .table import players_game
+from datetime import datetime
+
 
 follows = db.Table(
     "follows",
@@ -35,6 +37,8 @@ class User(db.Model, UserMixin):
     avatar_url = db.Column(db.String(255), nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     currentSimoleans = db.Column(db.Integer, nullable=True, default=0)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     gametables = db.relationship(
         "GameTable", 
@@ -81,5 +85,6 @@ class User(db.Model, UserMixin):
             'profile_url': self.avatar_url,
             'followers': [follower.id for follower in self.followers],
             'following': [following.id for following in self.following],
+            'gametables': [gametable.id for gametable in self.gametables],
             # 'table_ids': [table.id for table in self.tables]
         }

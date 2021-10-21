@@ -1,4 +1,6 @@
 from .db import db
+from datetime import date, datetime
+
 # from .user import players_game
 
 players_game = db.Table(
@@ -28,10 +30,10 @@ class GameTable(db.Model):
     tableName = db.Column(db.String(255), nullable=True)
     # seat_1 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
 
-    currentTurn = db.Column(db.Integer, nullable=False)
-    isActive = db.Column(db.Boolean, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False)
-    updated_at = db.Column(db.DateTime, nullable=False)
+    currentTurn = db.Column(db.Integer, nullable=False, default=0)
+    isActive = db.Column(db.Boolean, nullable=False, default=False)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     # relationships
 
@@ -53,14 +55,7 @@ class GameTable(db.Model):
             'tableName': self.tableName,
             # 'seat1': self.seat1.to_dict(),
             # 'seat2': self.seat2.to_dict(),
-            # 'seat3': self.seat3.to_dict(),
-            # 'seat4': self.seat4.to_dict(),
-            # 'seat5': self.seat5.to_dict(),
-            # 'seat6': self.seat6.to_dict(),
-            # 'seat7': self.seat7.to_dict(),
-            # 'seat8': self.seat8.to_dict(),
-            # 'seat9': self.seat9.to_dict(),
-            # 'seat10': self.seat10.to_dict(),
+            'players': [player.id for player in self.players],
             'currentTurn': self.currentTurn,
             'isActive': self.isActive,
             'created_at': self.created_at,
