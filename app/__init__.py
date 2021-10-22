@@ -21,8 +21,6 @@ app = Flask(__name__)
 # Setup login manager
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
-socketio.init_app(app)
-
 
 
 @login.user_loader
@@ -42,6 +40,9 @@ Migrate(app, db)
 
 # Application Security
 CORS(app)
+
+socketio.init_app(app)
+
 
 
 # Since we are deploying with Docker and Flask,
