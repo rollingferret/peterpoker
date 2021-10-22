@@ -56,6 +56,9 @@ class User(db.Model, UserMixin):
     #     'GameTable', back_populates='seat2')
 
 
+    createdtables = db.relationship("GameTable", back_populates="table_owner")
+
+
     followers = db.relationship(
     "User",
     secondary=follows,

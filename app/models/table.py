@@ -19,8 +19,9 @@ players_game = db.Table(
     ),
     db.Column(
         "seatNumber",
-        db.Integer
-    ),
+        db.Integer,
+        nullable=True,
+    )
 )
 
 class GameTable(db.Model):
@@ -29,6 +30,7 @@ class GameTable(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tableName = db.Column(db.String(255), nullable=True)
     # seat_1 = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    tableCreator = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     currentTurn = db.Column(db.Integer, nullable=False, default=0)
     isActive = db.Column(db.Boolean, nullable=False, default=False)
@@ -43,6 +45,9 @@ class GameTable(db.Model):
         back_populates="gametables"
     )
 
+    table_owner = db.relationship("User", back_populates="createdtables")
+
+
     # seat1 = db.relationship('User', back_populates='seat1', foreign_keys=[seat_1])
     # seat2 = db.relationship('User', back_populates='seat2', foreign_keys=[seat_2])
 
@@ -56,6 +61,9 @@ class GameTable(db.Model):
             # 'seat1': self.seat1.to_dict(),
             # 'seat2': self.seat2.to_dict(),
             'players': [player.id for player in self.players],
+            'tableCreator': self.tableCreator,
+            # 'seatPositions': [players_game.seatNumber],
+            'test': 'test',
             'currentTurn': self.currentTurn,
             'isActive': self.isActive,
             'created_at': self.created_at,

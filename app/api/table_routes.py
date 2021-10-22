@@ -32,29 +32,29 @@ def comment_route(id):
         return {gametable.id: gametable.to_dict() for gametable in gametables}
 
 
-# @ gametables_routes.route('/new', methods=['POST'])
-# @ login_required
-# def add_new_comment():
-#     '''
-#     GameTable POST route.
-#     '''
-#     userId = current_user.get_id()
-#     form = NewCommentForm()
-#     form["csrf_token"].data = request.cookies["csrf_token"]
-#     if form.validate_on_submit():
-#         comment = Comment(
-#             user_id=userId,
-#             image_id=form.data['image_id'],
-#             content=form.data['content'],
-#             created_at=datetime.now(),
-#             updated_at=datetime.now()
-#         )
-#         db.session.add(comment)
-#         db.session.commit()
-#         return comment.to_dict()
-#     else:
+@ gametables_routes.route('/new', methods=['POST'])
+@ login_required
+def add_new_comment():
+    '''
+    GameTable POST route.
+    '''
+    userId = current_user.get_id()
+    form = NewCommentForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        comment = Comment(
+            user_id=userId,
+            image_id=form.data['image_id'],
+            content=form.data['content'],
+            created_at=datetime.now(),
+            updated_at=datetime.now()
+        )
+        db.session.add(comment)
+        db.session.commit()
+        return comment.to_dict()
+    else:
 
-#         return form.errors
+        return form.errors
 
 
 # @ gametables_routes.route('/edit/<int:id>', methods=['PATCH'])
