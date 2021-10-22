@@ -12,7 +12,7 @@ const Chat = () => {
     useEffect(() => {
         // open socket connection
         // create websocket
-        socket = io();
+        socket = io('https://peterpoker.herokuapp.com/');
 
         socket.on("chat", (chat) => {
             setMessages(messages => [...messages, chat])
