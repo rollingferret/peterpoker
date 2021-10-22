@@ -13,10 +13,10 @@ const Chat = () => {
         // open socket connection
         // create websocket
         // local socket
-        // socket = io();
+        socket = io();
 
         // heroku socket
-        socket = io('https://peterpoker.herokuapp.com');
+        // socket = io('https://peterpoker.herokuapp.com');
 
 
         socket.on("chat", (chat) => {
