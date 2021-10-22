@@ -4,8 +4,8 @@ import os
 # create your SocketIO instance
 if os.environ.get("FLASK_ENV") == "production":
     origins = [
-        "http://actual-app-url.herokuapp.com",
-        "https://actual-app-url.herokuapp.com"
+        "https://peterpoker.herokuapp.com",
+        "https://peterpoker.herokuapp.com"
     ]
 else:
     origins = "*"
