@@ -10,6 +10,7 @@ import User from './components/User/User';
 import Chat from './components/chat/chat';
 import TestGame from './components/testGame/testGame';
 import { authenticate } from './store/session';
+import HomePage from './components/homepage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,6 +31,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path='/' exact={true}>
+          <HomePage />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>

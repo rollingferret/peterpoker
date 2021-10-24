@@ -5,29 +5,34 @@ import { login } from '../../store/session';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState('');
+  const [login_param, setLoginParam] = useState("");
+  // const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login(login_param, password));
     if (data) {
       setErrors(data);
     }
   };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
+  const updateLoginParam = (e) => {
+    setLoginParam(e.target.value);
   };
+
+  // const updateEmail = (e) => {
+  //   setEmail(e.target.value);
+  // };
 
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
   return (
@@ -40,11 +45,11 @@ const LoginForm = () => {
       <div>
         <label htmlFor='email'>Email</label>
         <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
+          name="login_param"
+          type="text"
+          placeholder="Username or Email"
+          value={login_param}
+          onChange={updateLoginParam}
         />
       </div>
       <div>

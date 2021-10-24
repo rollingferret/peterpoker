@@ -1,0 +1,106 @@
+.outterdiv {
+	width: 100%;
+  	height: 100px;
+	background-color: #f1f1f1;
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.buffer {
+	width: 110vw;
+	height: 95px;
+	background-color: black;
+	position: relative;
+	left: -50px;
+	margin-bottom: 20px;
+}
+
+.leftoutterdiv {
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.middleoutterdiv {
+	width: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rightoutterdiv {
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navhome {
+
+	height: 40%;
+	width: 60%;
+
+}
+
+.homenavlink {
+	background-color: orange;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	border: 3px solid black;
+	border-radius: 15px;
+	font-size: larger;
+	text-decoration: none;
+
+}
+
+.logodiv {
+
+	height: 40%;
+	width: 60%;
+
+}
+
+.logoinnerdiv {
+	background-color: lightgray;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	border: 3px solid black;
+	border-radius: 15px;
+	font-size: larger;
+	text-decoration: none;
+}
+
+.navuserbuttons {
+
+	height: 100%;
+	width: 100%;
+
+}
+
+.navlogin {
+	background-color: green;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	border: 3px solid black;
+	border-radius: 15px;
+	font-size: larger;
+	text-decoration: none;
+}
+
+.rightbuttons {
+	height: 40%;
+	width: 60%;
+}
