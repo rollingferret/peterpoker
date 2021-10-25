@@ -1,1 +1,31 @@
 /* TODO Add site wide styles */
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
+body {
+    text-align: center;
+    margin: 1em;
+    font: 1em "Press start 2P";
+    font-weight: 700;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+  
+@media screen and (max-width: 1000px) {
+	body {
+        font: 0.7em "Press start 2P";
+        font-weight: 500;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	body {
+        font: 0.2em "Press start 2P";
+        font-weight: 500;
+	}
+}

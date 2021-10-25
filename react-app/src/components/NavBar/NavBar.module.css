@@ -7,14 +7,15 @@
 	top: 0;
 	display: flex;
 	flex-direction: row;
+	/* border-bottom: 10px solid black; */
 }
 
 .buffer {
-	width: calc(100vw + 42px);
-	height: 95px;
-	background-color: black;
+	width: calc(100vw + 13px);;
+	height: 100px;
+	background-color: #7c7c7c;
 	position: relative;
-	left: -50px;
+	left: -16px;
 	margin-bottom: 20px;
 }
 
@@ -47,7 +48,7 @@
 }
 
 .homenavlink {
-	background-color: orange;
+	background-color: #F7D51D;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -56,7 +57,6 @@
 	border: 3px solid black;
 	border-radius: 15px;
 	font-size: larger;
-	text-decoration: none;
 
 }
 
@@ -68,7 +68,7 @@
 }
 
 .logoinnerdiv {
-	background-color: lightgray;
+	background-color: #a4e4fc;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -77,7 +77,6 @@
 	border: 3px solid black;
 	border-radius: 15px;
 	font-size: larger;
-	text-decoration: none;
 }
 
 .navuserbuttons {
@@ -88,7 +87,7 @@
 }
 
 .navlogin {
-	background-color: green;
+	background-color: #92CD41;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -97,7 +96,6 @@
 	border: 3px solid black;
 	border-radius: 15px;
 	font-size: larger;
-	text-decoration: none;
 }
 
 .rightbuttons {
