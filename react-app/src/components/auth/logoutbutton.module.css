@@ -1,0 +1,12 @@
+.navlogout{
+	background-color: #E76E55;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	border: 3px solid black;
+	border-radius: 15px;
+	font-size: larger;
+	text-decoration: none;
+}
