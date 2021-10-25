@@ -46,18 +46,18 @@ const NavBar = () => {
       </div>
     </div>
     </div>
-    <nav>
+    {/* <nav>
       <ul>
-        {/* <li>
+        <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </li> */}
-        {/* <li>
+        </li>
+        <li>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
-        </li> */}
+        </li>
         <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
@@ -68,11 +68,11 @@ const NavBar = () => {
             Users
           </NavLink>
         </li>
-        {/* <li>
+        <li>
           <LogoutButton />
-        </li> */}
+        </li>
       </ul>
-</nav>
+</nav> */}
     </>
   );
 }

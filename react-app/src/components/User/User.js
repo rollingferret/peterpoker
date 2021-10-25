@@ -19,11 +19,15 @@ function User() {
   if (!user) {
     return null;
   }
+  
+  if (!user.id) {
+    return 'No Such User Exists!'
+  }
 
   return (
     <ul>
       <li>
-        <strong>User Id</strong> {userId}
+        <strong>User Id</strong> {user.id}
       </li>
       <li>
         <strong>Username</strong> {user.username}

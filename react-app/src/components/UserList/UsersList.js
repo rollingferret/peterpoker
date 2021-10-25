@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import css from './userlist.module.css'
 
 function UsersList() {
@@ -16,11 +16,11 @@ function UsersList() {
 
   const userComponents = users.map((user) => {
     return (
-      <div className={css.usercard} key={user.id}>
-        <div className={css.useravatar} style={{backgroundImage: `url(${user.avatar_url?user.avatar_url:'https://38.media.tumblr.com/21f6de2276453b6f6519e1ae3d97e242/tumblr_nfima4FU7i1tm4vpxo1_250.gif'})`}}></div>
-        <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
-        <div className={css.userbio}>{user.bio}</div>
-      </div>
+      <NavLink to={`/users/${user.id}`} className={css.usercard} key={user.id}>
+      <div className={css.useravatar} style={{backgroundImage: `url(${user.avatar_url?user.avatar_url:'https://38.media.tumblr.com/21f6de2276453b6f6519e1ae3d97e242/tumblr_nfima4FU7i1tm4vpxo1_250.gif'})`}}></div>
+      <div className={css.userId}>{user.username}</div>
+      <div className={css.userbio}>{user.bio}</div>
+      </NavLink>
     );
   });
 
@@ -28,10 +28,12 @@ function UsersList() {
     return null
   } else {
   return (
-    <>
-      <h1>User List: </h1>
-      <ul>{userComponents}</ul>
-    </>
+    <div className={css.userlistvertcenter}>
+    <div className={css.userlistoutter}>
+      <Link to={`/users`} className={css.userlistwords}>User List:</Link>
+      <div className={css.usercomponentsoutter}>{userComponents}</div>
+    </div>
+    </div>
   );
 }}
 
