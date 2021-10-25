@@ -18,6 +18,7 @@ def seed_users():
             username=fake.user_name(),
             email=fake.free_email(),
             password='password',
+            avatar_url=fake.image_url(),
             bio=' '.join(fake.sentences(nb=3))
         )
         db.session.add(new_user)
