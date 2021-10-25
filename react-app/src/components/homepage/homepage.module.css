@@ -1,12 +1,11 @@
 .homepagefooteroutterdiv {
     background-color: #f1f1f1;
     /* background-color: red; */
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     width:100vw;
     height: 50px;
-    position: absolute;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -28,7 +27,7 @@
     font-weight: 600;
 }
 
-.homepagegithublogo {
+.homepagelogo {
     height: 30px;
     width: 30px;
     border-radius: 15px;
@@ -38,5 +37,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #7c7c7c;
+}
 
+.logodisappear {
+    display: none;
+}
+
+.homepageuserlist {
+    display: flex;
+    height: calc(50vh - 100px);
+    width: 70%;
 }

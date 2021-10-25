@@ -10,18 +10,18 @@ gametables_routes = Blueprint('gametables', __name__)
 
 
 @gametables_routes.route('/')
-def comments_route():
+def gametablesroute():
     '''
     GameTable GET route for ALL.
     '''
     gametables = GameTable.query.limit(20).all()
     return{
         'gametables': {gametable.id: gametable.to_dict() for gametable in gametables}
-    }
+}
 
 
 @gametables_routes.route('/<int:id>')
-def comment_route(id):
+def gametableroute(id):
     '''
     GameTable GET route by ID.
     '''
@@ -34,7 +34,7 @@ def comment_route(id):
 
 @ gametables_routes.route('/new', methods=['POST'])
 @ login_required
-def add_new_comment():
+def add_new_table():
     '''
     GameTable POST route.
     '''
