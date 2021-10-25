@@ -10,7 +10,7 @@
 }
 
 .buffer {
-	width: 110vw;
+	width: calc(100vw + 42px);
 	height: 95px;
 	background-color: black;
 	position: relative;
