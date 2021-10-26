@@ -16,7 +16,7 @@ def gametablesroute():
     '''
     GameTable GET route for ALL.
     '''
-    gametables = GameTable.query.limit(20).all()
+    gametables = GameTable.query.all()
     return{
         'gametables': {gametable.id: gametable.to_dict() for gametable in gametables}
 }
