@@ -47,4 +47,13 @@
     display: flex;
     height: calc(50vh - 100px);
     width: 70%;
+    margin-top: -10px;
+}
+
+.homepagegametables {
+
+    margin-top: 13px;
+    display: flex;
+    height: calc(50vh - 100px);
+    width: 70%;
 }

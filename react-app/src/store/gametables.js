@@ -40,23 +40,23 @@ export const getAllGametablesThunk = () => async (dispatch) => {
   }
 };
 
-// export const addCommentThunk = (comment) => async (dispatch) => {
-//   const res = await fetch("/api/comments/new", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(comment),
-//   });
+export const addGameTableThunk = (table) => async (dispatch) => {
+  const res = await fetch("/api/gametables/new", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(table),
+  });
 
-//   if (res.ok) {
-//     const new_comment = await res.json();
+  if (res.ok) {
+    const new_table = await res.json();
 
-//     dispatch(addCommentAction(new_comment));
+    dispatch(addGametableAction(new_table));
 
-//     return { ok: true };
-//   }
-// };
+    return { ok: true };
+  }
+};
 
 // export const updateCommentThunk =
 //   ({ id, content }) =>

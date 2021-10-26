@@ -3,13 +3,16 @@ import UsersList from "../UserList/UsersList";
 import css from './homepage.module.css'
 import github from "../../assets/github.png";
 import linkedin from "../../assets/linkedin.png";
+import GetAllGameTables from '../GameTableAll'
 
 
 function HomePage() {
   //test
   return (
     <>
-    <div className={css.homepageuserlist}><UsersList /></div> 
+    <div className={css.homepageuserlist}><UsersList /></div>
+    <div className={css.homepagegametables}><GetAllGameTables /></div> 
+
 
     <div className={css.homepagefooteroutterdiv}>
     <div className={css.homepagefooterinnerdiv}>

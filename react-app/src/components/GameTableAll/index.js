@@ -54,18 +54,23 @@ function GetAllGameTables() {
 
   if (!gameTableList) {
     return null
-  }
+  } else {
 
   return (
 
   <>
-  <div>TEST</div>
-  <div>{tablelist}</div>
+  <div className={css.gamelistvertcenter}>
+  <div className={css.gamelistoutter}>
+  <Link to={`/gametables`} className={css.gamelistwords}>Table List:</Link>
+  <div className={css.gamecomponentsoutter}>{tablelist}</div>
+  </div>
+  </div>
   </>
 
   )
 
         
+}
 }
 
 export default GetAllGameTables;
