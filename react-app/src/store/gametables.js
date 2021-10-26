@@ -68,17 +68,17 @@ export const updateGameTableThunk =
     }
   };
 
-// export const delCommentThunk = (commentId) => async (dispatch) => {
-//   const res = await fetch(`/api/comments/delete/${commentId}`, {
-//     method: "DELETE",
-//   });
+export const delGametableThunk = (gametableId) => async (dispatch) => {
+  const res = await fetch(`/api/gametables/delete/${gametableId}`, {
+    method: "DELETE",
+  });
 
-//   if (res.ok) {
-//     const query = await res.json();
-//     dispatch(delCommentsAction(query));
-//     return { ok: true };
-//   }
-// };
+  if (res.ok) {
+    const query = await res.json();
+    dispatch(delGametableAction(query));
+    return { ok: true };
+  }
+};
 
 const initialState = {};
 // const initialState = [];

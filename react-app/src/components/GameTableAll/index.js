@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getAllGametablesThunk } from "../../store/gametables";
 import css from './gametableall.module.css'
 import EditGameTableModal from '../EditGameTableForm'
+import DeleteGameTableModal from '../DeleteGameTable'
 
 
 function GetAllGameTables() {
@@ -29,6 +30,8 @@ function GetAllGameTables() {
     return (
       <div className={css.tablecard} key={table.id}>
         <EditGameTableModal gametableId={table.id}/>
+        <DeleteGameTableModal gametableId={table.id}/>
+
         <Link to={`/gametable/${table.id}`}>
           <h3>{table.tableName}</h3>
           <p>{table.players===null?table.players:'No Current Players'}</p>
