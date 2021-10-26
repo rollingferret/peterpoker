@@ -5,6 +5,6 @@ from wtforms.fields import (
 from wtforms.validators import DataRequired
 
 
-class NewGameTable(FlaskForm):
+class EditGameTable(FlaskForm):
     tableName = StringField("Table Name")
     submit = SubmitField("Post")
