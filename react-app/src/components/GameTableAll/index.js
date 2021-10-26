@@ -29,9 +29,16 @@ function GetAllGameTables() {
 
     return (
       <div className={css.tablecard} key={table.id}>
-        <EditGameTableModal gametableId={table.id}/>
-        <DeleteGameTableModal gametableId={table.id}/>
-
+        {/* <EditGameTableModal gametableId={table.id}/>
+        <DeleteGameTableModal gametableId={table.id}/> */}
+        <div>
+              {currentUser && currentUser.id === table.tableCreator && (
+                <>
+                  <EditGameTableModal gametableId={table.id} />
+                  <DeleteGameTableModal gametableId={table.id} />
+                </>
+              )}
+        </div>
         <Link to={`/gametable/${table.id}`}>
           <h3>{table.tableName}</h3>
           <p>{table.players===null?table.players:'No Current Players'}</p>
