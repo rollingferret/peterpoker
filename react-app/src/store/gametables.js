@@ -89,6 +89,8 @@ export const getAllGametablesThunk = () => async (dispatch) => {
 // };
 
 const initialState = {};
+// const initialState = [];
+
 
 export default function reducer(state = initialState, action) {
   let newState;
@@ -99,16 +101,21 @@ export default function reducer(state = initialState, action) {
       return newState;
     case GET_GAMETABLES:
       newState = Object.assign({}, state);
-      // const allGametables = action.payload;
-      // Object.values(allGametables).forEach((gametable) => {
-      //   newState[gametable.id] = gametable;
-      // });
-
-      Object.entries(action.payload).forEach(([id, payload]) => {
-        newState[id] = payload;
+      const allGametables = action.payload.gametables;
+      Object.values(allGametables).forEach((gametable) => {
+        newState[gametable.id] = gametable;
       });
 
+      // Object.values(allGametables).forEach((gametable) => {
+      //   newState.push(gametable);
+      // });
+
+      // Object.entries(action.payload).forEach(([id, payload]) => {
+      //   newState[id] = payload;
+      // });
       return newState;
+
+      // return Object.values(action.payload.gametables);
     case EDIT_GAMETABLE:
       newState = Object.assign({}, state);
       newState[action.payload.id] = action.payload;
