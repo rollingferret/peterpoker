@@ -1,18 +1,23 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateGameTableThunk } from "../../store/gametables";
 
 function EditGameTableForm({ ...props }) {
   const dispatch = useDispatch();
 
-  const [content, setContent] = useState("");
+  const currentTableName = useSelector((state) => state.gametables[props.gametableId]);  
+  
+  const [tableName, setTableName] = useState(`${currentTableName.tableName}`);
+
+  // const [tableName, setTableName] = useState("");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     let edited_gametable = {
       id: props.gametableId,
-      content: content,
+      tableName: tableName,
     };
 
     return dispatch(updateGameTableThunk(edited_gametable)).then(async () =>
@@ -29,9 +34,11 @@ function EditGameTableForm({ ...props }) {
           </div>
           <div className="innercommentdivs" id="topborderlinecommentdiv">
             <input
-              type="content"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
+              type="tableName"
+              // value={tableName}
+              value={tableName}
+              onChange={(e) => setTableName(e.target.value)}
+              placeholder="Table Name"
               className="contentcommentdiv"
             />
           </div>

@@ -51,14 +51,14 @@ export const addGameTableThunk = (table) => async (dispatch) => {
 };
 
 export const updateGameTableThunk =
-  ({ id, content }) =>
+  ({ id, tableName }) =>
   async (dispatch) => {
     const res = await fetch(`/api/gametables/edit/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ content }),
+      body: JSON.stringify({ tableName }),
     });
 
     if (res.ok) {

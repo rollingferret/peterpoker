@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import css from './userlist.module.css'
+import poro from "../../assets/bouncingporo.gif";
+
 
 function UsersList() {
   const [users, setUsers] = useState([]);
@@ -17,7 +19,7 @@ function UsersList() {
   const userComponents = users.map((user) => {
     return (
       <NavLink to={`/users/${user.id}`} className={css.usercard} key={user.id}>
-      <div className={css.useravatar} style={{backgroundImage: `url(${user.avatar_url?user.avatar_url:'https://38.media.tumblr.com/21f6de2276453b6f6519e1ae3d97e242/tumblr_nfima4FU7i1tm4vpxo1_250.gif'})`}}></div>
+      <div className={css.useravatar} style={{backgroundImage: `url(${user.avatar_url?user.avatar_url:`${poro}`})`}}></div>
       <div className={css.userId}>{user.username}</div>
       <div className={css.userbio}>{user.bio}</div>
       </NavLink>

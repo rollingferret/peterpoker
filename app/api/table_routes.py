@@ -70,7 +70,7 @@ def edit(id):
     if form.validate_on_submit():
         edited_gametable = GameTable.query.get(id)
         if int(userId) == int(edited_gametable.tableCreator):
-            edited_gametable.content = form.data['content']
+            edited_gametable.tableName = form.data['tableName']
             edited_gametable.updated_at = datetime.now()
             db.session.commit()
 

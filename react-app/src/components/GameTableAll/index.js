@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllGametablesThunk } from "../../store/gametables";
 import css from './gametableall.module.css'
+import EditGameTableModal from '../EditGameTableForm'
 
 
 function GetAllGameTables() {
@@ -17,21 +18,22 @@ function GetAllGameTables() {
     return state.gametables;
   });
 
-  console.log(gameTableList, '888888888888888888888888888888888')
+  // console.log(gameTableList, '888888888888888888888888888888888')
 
-  Object.values(gameTableList).map((table) => {
-    console.log(table)
-  })
+  // Object.values(gameTableList).map((table) => {
+  //   console.log(table)
+  // })
 
   const tablelist = Object.values(gameTableList).map((table) => {
 
     return (
       <div className={css.tablecard} key={table.id}>
+        <EditGameTableModal gametableId={table.id}/>
         <Link to={`/gametable/${table.id}`}>
           <h3>{table.tableName}</h3>
           <p>{table.players===null?table.players:'No Current Players'}</p>
           <p>{table.isActive}</p>
-          <p>{table.created_at}</p>
+          <p>{table.updated_at}</p>
         </Link>
       </div>
     );

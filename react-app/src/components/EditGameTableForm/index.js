@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/modal';
-import EditCommentForm from './editcommentform';
+import EditGameTableForm from './editgametable';
 
 function EditGameTableModal(props) {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +14,7 @@ function EditGameTableModal(props) {
       onClick={() => setShowModal(true)}></button>
       {showModal && (
         <Modal onClose={onClose}>
-          <EditCommentForm onClose={onClose} gametableId={props.gametableId}/>
+          <EditGameTableForm onClose={onClose} gametableId={props.gametableId}/>
         </Modal>
       )}
     </>
