@@ -38,15 +38,15 @@ function NewGameTable() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className={css.comment_container}>
+        <div className={css.gametable}>
           <input
             type="tablename"
             value={tablename}
             placeholder="Add a table name..."
             onChange={(e) => setTablename(e.target.value)}
-            className={css.comment_text}
+            className={css.gametable}
           />
-          <button type="submit" className={css.comment_btn}>
+          <button type="submit" className={css.gametable}>
             Create a table!
           </button>
         </div>

@@ -58,23 +58,23 @@ export const addGameTableThunk = (table) => async (dispatch) => {
   }
 };
 
-// export const updateCommentThunk =
-//   ({ id, content }) =>
-//   async (dispatch) => {
-//     const res = await fetch(`/api/comments/edit/${id}`, {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ content }),
-//     });
+export const updateGameTableThunk =
+  ({ id, content }) =>
+  async (dispatch) => {
+    const res = await fetch(`/api/gametables/edit/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ content }),
+    });
 
-//     if (res.ok) {
-//       const query = await res.json();
-//       dispatch(editCommentsAction(query));
-//       return { ok: true };
-//     }
-//   };
+    if (res.ok) {
+      const query = await res.json();
+      dispatch(editGametableAction(query));
+      return { ok: true };
+    }
+  };
 
 // export const delCommentThunk = (commentId) => async (dispatch) => {
 //   const res = await fetch(`/api/comments/delete/${commentId}`, {
