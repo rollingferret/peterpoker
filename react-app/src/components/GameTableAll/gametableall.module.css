@@ -58,5 +58,6 @@
 .gamelistwords {
     font-size: 1.75em;
     margin: 25px;
+    /* position: absolute; */
 
 }
