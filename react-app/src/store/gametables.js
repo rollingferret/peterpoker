@@ -1,114 +1,114 @@
-const ADD_COMMENT = "comments/ADD_COMMENT";
-const GET_COMMENTS = "comments/GET_COMMENTS";
-const EDIT_COMMENT = "comments/EDIT_COMMENT";
-const DEL_COMMENT = "comments/DEL_COMMENT";
+const ADD_GAMETABLE = "gametables/ADD_GAMETABLE";
+const GET_GAMETABLES = "gametables/GET_GAMETABLE";
+const EDIT_GAMETABLE = "gametables/EDIT_GAMETABLE";
+const DEL_GAMETABLE = "gametables/DEL_GAMETABLE";
 
-const addCommentAction = (comment) => ({
-  type: ADD_COMMENT,
-  payload: comment,
+const addGametableAction = (gametable) => ({
+  type: ADD_GAMETABLE,
+  payload: gametable,
 });
 
-const getAllCommentsAction = (comment) => ({
-  type: GET_COMMENTS,
-  payload: comment,
+const getGametablesAction = (gametable) => ({
+  type: GET_GAMETABLES,
+  payload: gametable,
 });
 
-const editCommentsAction = (comment) => ({
-  type: EDIT_COMMENT,
-  payload: comment,
+const editGametableAction = (gametable) => ({
+  type: EDIT_GAMETABLE,
+  payload: gametable,
 });
 
-const delCommentsAction = (comment) => ({
-  type: DEL_COMMENT,
-  payload: comment,
+const delGametableAction = (gametable) => ({
+  type: DEL_GAMETABLE,
+  payload: gametable,
 });
 
-export const getCommentByIdThunk = (imageId) => async (dispatch) => {
-  const res = await fetch(`/api/comments/${imageId}`);
-  if (res.ok) {
-    const query = await res.json();
-    dispatch(getAllCommentsAction(query));
-  }
-};
+// export const getCommentByIdThunk = (imageId) => async (dispatch) => {
+//   const res = await fetch(`/api/comments/${imageId}`);
+//   if (res.ok) {
+//     const query = await res.json();
+//     dispatch(getAllCommentsAction(query));
+//   }
+// };
 
-export const getAllCommentsThunk = () => async (dispatch) => {
-  const res = await fetch("/api/comments");
-
-  if (res.ok) {
-    const query = await res.json();
-    dispatch(getAllCommentsAction(query));
-  }
-};
-
-export const addCommentThunk = (comment) => async (dispatch) => {
-  const res = await fetch("/api/comments/new", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(comment),
-  });
-
-  if (res.ok) {
-    const new_comment = await res.json();
-
-    dispatch(addCommentAction(new_comment));
-
-    return { ok: true };
-  }
-};
-
-export const updateCommentThunk =
-  ({ id, content }) =>
-  async (dispatch) => {
-    const res = await fetch(`/api/comments/edit/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ content }),
-    });
-
-    if (res.ok) {
-      const query = await res.json();
-      dispatch(editCommentsAction(query));
-      return { ok: true };
-    }
-  };
-
-export const delCommentThunk = (commentId) => async (dispatch) => {
-  const res = await fetch(`/api/comments/delete/${commentId}`, {
-    method: "DELETE",
-  });
+export const getAllGametablesThunk = () => async (dispatch) => {
+  const res = await fetch("/api/gametables");
 
   if (res.ok) {
     const query = await res.json();
-    dispatch(delCommentsAction(query));
-    return { ok: true };
+    dispatch(getGametablesAction(query));
   }
 };
+
+// export const addCommentThunk = (comment) => async (dispatch) => {
+//   const res = await fetch("/api/comments/new", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(comment),
+//   });
+
+//   if (res.ok) {
+//     const new_comment = await res.json();
+
+//     dispatch(addCommentAction(new_comment));
+
+//     return { ok: true };
+//   }
+// };
+
+// export const updateCommentThunk =
+//   ({ id, content }) =>
+//   async (dispatch) => {
+//     const res = await fetch(`/api/comments/edit/${id}`, {
+//       method: "PATCH",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ content }),
+//     });
+
+//     if (res.ok) {
+//       const query = await res.json();
+//       dispatch(editCommentsAction(query));
+//       return { ok: true };
+//     }
+//   };
+
+// export const delCommentThunk = (commentId) => async (dispatch) => {
+//   const res = await fetch(`/api/comments/delete/${commentId}`, {
+//     method: "DELETE",
+//   });
+
+//   if (res.ok) {
+//     const query = await res.json();
+//     dispatch(delCommentsAction(query));
+//     return { ok: true };
+//   }
+// };
 
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
-    case ADD_COMMENT:
+    case ADD_GAMETABLE:
       newState = Object.assign({}, state);
       newState[action.payload.id] = action.payload;
       return newState;
-    case GET_COMMENTS:
+    case GET_GAMETABLES:
       newState = Object.assign({}, state);
-      const allComments = action.payload;
-      Object.values(allComments).forEach((comment) => {
-        newState[comment.id] = comment;
+      const allGametables = action.payload;
+      Object.values(allGametables).forEach((gametable) => {
+        newState[gametable.id] = gametable;
       });
       return newState;
-    case EDIT_COMMENT:
+    case EDIT_GAMETABLE:
       newState = Object.assign({}, state);
       newState[action.payload.id] = action.payload;
       return newState;
-    case DEL_COMMENT:
+    case DEL_GAMETABLE:
       newState = Object.assign({}, state);
       delete newState[action.payload.id];
       return newState;
