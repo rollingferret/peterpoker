@@ -23,14 +23,6 @@ const delGametableAction = (gametable) => ({
   payload: gametable,
 });
 
-// export const getCommentByIdThunk = (imageId) => async (dispatch) => {
-//   const res = await fetch(`/api/comments/${imageId}`);
-//   if (res.ok) {
-//     const query = await res.json();
-//     dispatch(getAllCommentsAction(query));
-//   }
-// };
-
 export const getAllGametablesThunk = () => async (dispatch) => {
   const res = await fetch("/api/gametables");
 
