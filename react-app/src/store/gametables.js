@@ -1,5 +1,6 @@
 const ADD_GAMETABLE = "gametables/ADD_GAMETABLE";
 const GET_GAMETABLES = "gametables/GET_GAMETABLE";
+const GET_SINGLEGAMETABLES = "gametables/GET_SINGLEGAMETABLES";
 const EDIT_GAMETABLE = "gametables/EDIT_GAMETABLE";
 const DEL_GAMETABLE = "gametables/DEL_GAMETABLE";
 
@@ -10,6 +11,11 @@ const addGametableAction = (gametable) => ({
 
 const getGametablesAction = (gametable) => ({
   type: GET_GAMETABLES,
+  payload: gametable,
+});
+
+const getSingleGametablesAction = (gametable) => ({
+  type: GET_SINGLEGAMETABLES,
   payload: gametable,
 });
 
@@ -29,6 +35,15 @@ export const getAllGametablesThunk = () => async (dispatch) => {
   if (res.ok) {
     const query = await res.json();
     dispatch(getGametablesAction(query));
+  }
+};
+
+export const getSingleGametablesThunk = (id) => async (dispatch) => {
+  const res = await fetch(`/api/gametables/${id}`);
+
+  if (res.ok) {
+    const query = await res.json();
+    dispatch(getSingleGametablesAction(query));
   }
 };
 
@@ -88,6 +103,10 @@ export default function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
     case ADD_GAMETABLE:
+      newState = Object.assign({}, state);
+      newState[action.payload.id] = action.payload;
+      return newState;
+    case GET_SINGLEGAMETABLES:
       newState = Object.assign({}, state);
       newState[action.payload.id] = action.payload;
       return newState;

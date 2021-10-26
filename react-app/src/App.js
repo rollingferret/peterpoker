@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 import HomePage from './components/homepage'
 import GetAllGameTables from './components/GameTableAll'
 import NewGameTable from './components/NewGameTableForm'
+import SingleGameTablePage from './components/SingleGameTablePage'
 
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
       <Switch>
         <Route path='/' exact={true}>
           <HomePage />
+        </Route>
+        <Route path='/gametables/:gametableId' exact={true}>
+          <SingleGameTablePage />
         </Route>
         <Route path='/gametables/new' exact={true}>
           <NewGameTable />

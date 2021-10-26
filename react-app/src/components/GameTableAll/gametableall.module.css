@@ -9,10 +9,8 @@
     max-height: 300px;
     background-color: #3cbcfc;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    overflow-y: scroll;
+    flex-direction: column;
+    justify-content: center;
     
 }
 
@@ -37,6 +35,7 @@
     justify-content: flex-start;
 
 
+
 }
 
 .gamelistoutter::-webkit-scrollbar {
@@ -50,9 +49,11 @@
     /* background-color: red; */
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    /* flex-direction: row; */
     flex-wrap: wrap;
     justify-content: space-around;
+
 }
 
 .gamelistwords {
@@ -60,4 +61,10 @@
     margin: 25px;
     /* position: absolute; */
 
+}
+
+.editdeletebuttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

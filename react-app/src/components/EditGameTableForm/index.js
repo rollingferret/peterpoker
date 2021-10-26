@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/modal';
 import EditGameTableForm from './editgametable';
+import css from './editgametable.module.css'
 
 function EditGameTableModal(props) {
   const [showModal, setShowModal] = useState(false);
@@ -9,9 +10,9 @@ function EditGameTableModal(props) {
 
   return (
     <>
-      <button
-        className={`far fa-edit`}
-      onClick={() => setShowModal(true)}></button>
+      <div
+        className={`far fa-edit`} id={css.editbutton}
+      onClick={() => setShowModal(true)}></div>
       {showModal && (
         <Modal onClose={onClose}>
           <EditGameTableForm onClose={onClose} gametableId={props.gametableId}/>
