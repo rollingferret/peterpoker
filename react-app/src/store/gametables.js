@@ -99,10 +99,15 @@ export default function reducer(state = initialState, action) {
       return newState;
     case GET_GAMETABLES:
       newState = Object.assign({}, state);
-      const allGametables = action.payload;
-      Object.values(allGametables).forEach((gametable) => {
-        newState[gametable.id] = gametable;
+      // const allGametables = action.payload;
+      // Object.values(allGametables).forEach((gametable) => {
+      //   newState[gametable.id] = gametable;
+      // });
+
+      Object.entries(action.payload).forEach(([id, payload]) => {
+        newState[id] = payload;
       });
+
       return newState;
     case EDIT_GAMETABLE:
       newState = Object.assign({}, state);
