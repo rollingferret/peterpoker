@@ -58,6 +58,7 @@ class User(db.Model, UserMixin):
 
     createdtables = db.relationship("GameTable", back_populates="table_owner")
 
+    comments = db.relationship('Comment', back_populates='user', cascade="all, delete-orphan")
 
     followers = db.relationship(
     "User",
@@ -90,5 +91,6 @@ class User(db.Model, UserMixin):
             'followers': [follower.id for follower in self.followers],
             'following': [following.id for following in self.following],
             'gametables': [gametable.id for gametable in self.gametables],
+            'comments': {comment.to_dict()["id"]: comment.to_dict() for comment in self.comments},
             # 'table_ids': [table.id for table in self.tables]
         }

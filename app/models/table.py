@@ -63,7 +63,7 @@ class GameTable(db.Model):
             'players': [player.id for player in self.players],
             'tableCreator': self.tableCreator,
             # 'seatPositions': [players_game.seatNumber],
-            'test': 'test',
+            # 'test': 'test',
             'currentTurn': self.currentTurn,
             'isActive': self.isActive,
             'created_at': self.created_at,

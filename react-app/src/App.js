@@ -11,6 +11,9 @@ import Chat from './components/chat/chat';
 import TestGame from './components/testGame/testGame';
 import { authenticate } from './store/session';
 import HomePage from './components/homepage'
+import GetAllGameTables from './components/GameTableAll'
+import NewGameTable from './components/NewGameTableForm'
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,6 +36,12 @@ function App() {
       <Switch>
         <Route path='/' exact={true}>
           <HomePage />
+        </Route>
+        <Route path='/gametables/new' exact={true}>
+          <NewGameTable />
+        </Route>
+        <Route path='/gametables' exact={true}>
+          <GetAllGameTables />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
