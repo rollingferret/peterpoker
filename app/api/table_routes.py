@@ -11,7 +11,7 @@ from app.forms import EditGameTable
 gametables_routes = Blueprint('gametables', __name__)
 
 
-@gametables_routes.route('/')
+@gametables_routes.route('')
 def gametablesroute():
     '''
     GameTable GET route for ALL.
@@ -34,8 +34,8 @@ def gametableroute(id):
         return {gametable.id: gametable.to_dict() for gametable in gametables}
 
 
-@ gametables_routes.route('/new', methods=['POST'])
-@ login_required
+@gametables_routes.route('/new', methods=['POST'])
+@login_required
 def add_new_table():
     '''
     GameTable POST route.
@@ -58,8 +58,8 @@ def add_new_table():
         return form.errors
 
 
-@ gametables_routes.route('/edit/<int:id>', methods=['PATCH'])
-@ login_required
+@gametables_routes.route('/edit/<int:id>', methods=['PATCH'])
+@login_required
 def edit(id):
     '''
     GameTable PATCH route.
@@ -82,8 +82,8 @@ def edit(id):
         return form.errors
 
 
-@ gametables_routes.route('/delete/<int:id>', methods=['DELETE'])
-@ login_required
+@gametables_routes.route('/delete/<int:id>', methods=['DELETE'])
+@login_required
 def delete(id):
     '''
     GameTable DELETE route.
