@@ -14,7 +14,7 @@ import HomePage from './components/homepage'
 import GetAllGameTables from './components/GameTableAll'
 import NewGameTable from './components/NewGameTableForm'
 import SingleGameTablePage from './components/SingleGameTablePage'
-
+import SingleUserPage from './components/singleUserpage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,9 +61,9 @@ function App() {
         <Route path='/users' exact={true} >
           <UsersList/>
         </Route>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
+        <Route path='/users/:userId' exact={true} >
+          <SingleUserPage />
+        </Route>
         <ProtectedRoute path='/home' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>

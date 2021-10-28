@@ -3,7 +3,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .table import players_game
 from datetime import datetime
+# from sqlalchemy.ext.declarative import declarative_base
 
+# Base = declarative_base()
 
 follows = db.Table(
     "follows",
@@ -45,20 +47,12 @@ class User(db.Model, UserMixin):
         secondary=players_game, 
         back_populates="players"
     )
-
-    # tables = db.relationship(
-    #     'Table', back_populates='user')
     
-    # seat1 = db.relationship(
-    #     'GameTable', back_populates='seat1')
-
-    # seat2 = db.relationship(
-    #     'GameTable', back_populates='seat2')
-
+    # user_comments = db.relationship('Comment')
 
     createdtables = db.relationship("GameTable", back_populates="table_owner")
 
-    comments = db.relationship('Comment', back_populates='user', cascade="all, delete-orphan")
+    # comments = db.relationship('Comment', back_populates='user', cascade="all, delete-orphan")
 
     followers = db.relationship(
     "User",
@@ -91,6 +85,6 @@ class User(db.Model, UserMixin):
             'followers': [follower.id for follower in self.followers],
             'following': [following.id for following in self.following],
             'gametables': [gametable.id for gametable in self.gametables],
-            'comments': {comment.to_dict()["id"]: comment.to_dict() for comment in self.comments},
+            # 'comments': {comment.to_dict()["id"]: comment.to_dict() for comment in self.comments},
             # 'table_ids': [table.id for table in self.tables]
         }

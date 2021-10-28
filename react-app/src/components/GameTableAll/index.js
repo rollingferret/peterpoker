@@ -37,7 +37,9 @@ function GetAllGameTables() {
           <div>{table.players===null?table.players:'No Current Players'}</div>
           <div>{table.isActive}</div>
           <div>{table.updated_at}</div>
-          <div className={css.editdeletebuttons}>
+        </Link>
+
+        <div className={css.editdeletebuttons}>
               {currentUser && currentUser.id === table.tableCreator && (
                 <>
                   <EditGameTableModal gametableId={table.id} />
@@ -45,7 +47,6 @@ function GetAllGameTables() {
                 </>
               )}
         </div>
-        </Link>
       </div>
     );
 
