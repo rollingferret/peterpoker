@@ -3,8 +3,16 @@ const { setUser } = require("./session");
 const GET_USERS = "users/GET_USERS";
 const FOLLOW_USER = "users/FOLLOW_USERS";
 const UNFOLLOW_USER = "users/UNFOLLOW_USERS";
+const GET_SINGLEUSER = "users/GET_SINGLEUSER";
+
 
 // actions
+const getSingleUserAction = (user) => ({
+  type: GET_SINGLEUSER,
+  payload: user,
+});
+
+
 const get = (users) => {
   return {
     type: GET_USERS,
@@ -67,6 +75,15 @@ export const unfollow_user = (userId) => async (dispatch) => {
   }
 };
 
+export const getSingleUserThunk = (id) => async (dispatch) => {
+  const res = await fetch(`/api/users/${id}`);
+
+  if (res.ok) {
+    const query = await res.json();
+    dispatch(getSingleUserAction(query));
+  }
+};
+
 const initialState = {};
 
 // reducer
@@ -77,6 +94,14 @@ export default function reducer(state = initialState, action) {
       const users = action.payload;
       newState = { ...newState, ...users };
       return newState;
+    case GET_SINGLEUSER:
+      newState = Object.assign({}, state);
+      // newState[action.payload.id] = action.payload[4];
+      const singleUser = action.payload;
+      newState[singleUser.id] = singleUser;
+ 
+      return newState;
+      // return action.payload
     case FOLLOW_USER:
       const { follower, following } = action.payload;
       newState[follower.id] = follower;

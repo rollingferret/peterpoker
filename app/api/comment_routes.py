@@ -70,7 +70,7 @@ def edit(id):
     if form.validate_on_submit():
         edited_comment = Comment.query.get(id)
         if int(userId) == int(edited_comment.user_id):
-            edited_comment.content = form.data['content']
+            edited_comment.tableName = form.data['tableName']
             edited_comment.updated_at = datetime.now()
             db.session.commit()
 

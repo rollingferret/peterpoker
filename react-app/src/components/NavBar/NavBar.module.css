@@ -10,6 +10,7 @@
 	border-bottom: 3px solid #7c7c7c;
 }
 
+
 .buffer {
 	width: 100vw;;
 	height: 100px;
@@ -24,6 +25,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition-property: ease-in;
 }
 
 .middleoutterdiv {
@@ -33,11 +35,26 @@
 	align-items: center;
 }
 
+.middleoutterdiv:hover {
+
+	animation-name: jump;
+	animation-duration: 0.6s;
+	animation-timing-function: ease-in;
+}
+
 .rightoutterdiv {
 	width: 20%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition-property: ease-in;
+}
+
+.rightoutterdiv:hover {
+
+	animation-name: jump;
+	animation-duration: 0.6s;
+	animation-timing-function: ease-in;
 }
 
 .navhome {
@@ -60,6 +77,23 @@
 
 }
 
+.leftoutterdiv:hover {
+
+	animation-name: jump;
+	animation-duration: 0.6s;
+	animation-timing-function: ease-in;
+}
+
+@keyframes jump {
+	0% {
+	}
+	50% {
+		transform: translate(0px, -20px);
+	}
+	100% {
+	}
+}
+
 .logodiv {
 
 	height: 40%;
@@ -78,6 +112,7 @@
 	border-radius: 15px;
 	font-size: larger;
 }
+
 
 .navuserbuttons {
 

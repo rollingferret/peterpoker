@@ -1,5 +1,6 @@
 const ADD_GAMETABLE = "gametables/ADD_GAMETABLE";
 const GET_GAMETABLES = "gametables/GET_GAMETABLE";
+const GET_SINGLEGAMETABLES = "gametables/GET_SINGLEGAMETABLES";
 const EDIT_GAMETABLE = "gametables/EDIT_GAMETABLE";
 const DEL_GAMETABLE = "gametables/DEL_GAMETABLE";
 
@@ -10,6 +11,11 @@ const addGametableAction = (gametable) => ({
 
 const getGametablesAction = (gametable) => ({
   type: GET_GAMETABLES,
+  payload: gametable,
+});
+
+const getSingleGametablesAction = (gametable) => ({
+  type: GET_SINGLEGAMETABLES,
   payload: gametable,
 });
 
@@ -32,6 +38,15 @@ export const getAllGametablesThunk = () => async (dispatch) => {
   }
 };
 
+export const getSingleGametablesThunk = (id) => async (dispatch) => {
+  const res = await fetch(`/api/gametables/${id}`);
+
+  if (res.ok) {
+    const query = await res.json();
+    dispatch(getSingleGametablesAction(query));
+  }
+};
+
 export const addGameTableThunk = (table) => async (dispatch) => {
   const res = await fetch("/api/gametables/new", {
     method: "POST",
@@ -51,14 +66,14 @@ export const addGameTableThunk = (table) => async (dispatch) => {
 };
 
 export const updateGameTableThunk =
-  ({ id, content }) =>
+  ({ id, tableName }) =>
   async (dispatch) => {
     const res = await fetch(`/api/gametables/edit/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ content }),
+      body: JSON.stringify({ tableName }),
     });
 
     if (res.ok) {
@@ -68,17 +83,17 @@ export const updateGameTableThunk =
     }
   };
 
-// export const delCommentThunk = (commentId) => async (dispatch) => {
-//   const res = await fetch(`/api/comments/delete/${commentId}`, {
-//     method: "DELETE",
-//   });
+export const delGametableThunk = (gametableId) => async (dispatch) => {
+  const res = await fetch(`/api/gametables/delete/${gametableId}`, {
+    method: "DELETE",
+  });
 
-//   if (res.ok) {
-//     const query = await res.json();
-//     dispatch(delCommentsAction(query));
-//     return { ok: true };
-//   }
-// };
+  if (res.ok) {
+    const query = await res.json();
+    dispatch(delGametableAction(query));
+    return { ok: true };
+  }
+};
 
 const initialState = {};
 // const initialState = [];
@@ -90,6 +105,15 @@ export default function reducer(state = initialState, action) {
     case ADD_GAMETABLE:
       newState = Object.assign({}, state);
       newState[action.payload.id] = action.payload;
+      return newState;
+    case GET_SINGLEGAMETABLES:
+      newState = Object.assign({}, state);
+      // newState[action.payload.id] = action.payload[4];
+      const singleGametable = action.payload;
+      Object.values(singleGametable).forEach((gametable) => {
+        newState[gametable.id] = gametable;
+      });
+
       return newState;
     case GET_GAMETABLES:
       newState = Object.assign({}, state);

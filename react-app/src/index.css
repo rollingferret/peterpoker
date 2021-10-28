@@ -11,10 +11,12 @@ body {
 * {
     box-sizing: border-box;
     color: black;
+
 }
 
 a {
     text-decoration: none;
+    word-break: break-all;
 }
   
 @media screen and (max-width: 1000px) {

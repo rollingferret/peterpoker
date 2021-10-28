@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllGametablesThunk } from "../../store/gametables";
 import css from './gametableall.module.css'
+import EditGameTableModal from '../EditGameTableForm'
+import DeleteGameTableModal from '../DeleteGameTable'
 
 
 function GetAllGameTables() {
@@ -17,22 +19,34 @@ function GetAllGameTables() {
     return state.gametables;
   });
 
-  console.log(gameTableList, '888888888888888888888888888888888')
+  // console.log(gameTableList, '888888888888888888888888888888888')
 
-  Object.values(gameTableList).map((table) => {
-    console.log(table)
-  })
+  // Object.values(gameTableList).map((table) => {
+  //   console.log(table)
+  // })
 
   const tablelist = Object.values(gameTableList).map((table) => {
 
     return (
       <div className={css.tablecard} key={table.id}>
-        <Link to={`/gametable/${table.id}`}>
-          <h3>{table.tableName}</h3>
-          <p>{table.players===null?table.players:'No Current Players'}</p>
-          <p>{table.isActive}</p>
-          <p>{table.created_at}</p>
+        {/* <EditGameTableModal gametableId={table.id}/>
+        <DeleteGameTableModal gametableId={table.id}/> */}
+
+        <Link to={`/gametables/${table.id}`}>
+          <div>{table.tableName}</div>
+          <div>{table.players===null?table.players:'No Current Players'}</div>
+          <div>{table.isActive}</div>
+          <div>{table.updated_at}</div>
         </Link>
+
+        <div className={css.editdeletebuttons}>
+              {currentUser && currentUser.id === table.tableCreator && (
+                <>
+                  <EditGameTableModal gametableId={table.id} />
+                  <DeleteGameTableModal gametableId={table.id} />
+                </>
+              )}
+        </div>
       </div>
     );
 

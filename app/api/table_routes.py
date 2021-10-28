@@ -70,13 +70,13 @@ def edit(id):
     if form.validate_on_submit():
         edited_gametable = GameTable.query.get(id)
         if int(userId) == int(edited_gametable.tableCreator):
-            edited_gametable.content = form.data['content']
+            edited_gametable.tableName = form.data['tableName']
             edited_gametable.updated_at = datetime.now()
             db.session.commit()
 
             return edited_gametable.to_dict()
         else:
-            return 'You do not have access to edit this comment!'
+            return 'You do not have access to edit this Game Table!'
     else:
 
         return form.errors
@@ -89,10 +89,14 @@ def delete(id):
     GameTable DELETE route.
     '''
     gametable_to_delete = GameTable.query.filter(GameTable.id == id).first()
+    userId = current_user.get_id()
 
     if not gametable_to_delete:
         return 'Nothing to delete'
     else:
-        db.session.delete(gametable_to_delete)
-        db.session.commit()
-        return gametable_to_delete.to_dict()
+        if int(userId) == int(gametable_to_delete.tableCreator):
+            db.session.delete(gametable_to_delete)
+            db.session.commit()
+            return gametable_to_delete.to_dict()
+        else:
+            return 'You do not have access to delete this Game Table!'
