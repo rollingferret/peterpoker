@@ -51,7 +51,7 @@ export const getUsers = () => async (dispatch) => {
 
 export const follow_user = (userId) => async (dispatch) => {
   const res = await fetch(
-    `${window.location.origin}/api/users/${userId}/follow`
+    `/api/users/${userId}/follow`
   );
   if (res.ok) {
     const { follower, following } = await res.json();
@@ -63,7 +63,7 @@ export const follow_user = (userId) => async (dispatch) => {
 
 export const unfollow_user = (userId) => async (dispatch) => {
   const res = await fetch(
-    `${window.location.origin}/api/users/${userId}/follow`,
+    `/api/users/${userId}/follow`,
     {
       method: "DELETE",
     }
