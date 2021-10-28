@@ -5,6 +5,7 @@ import { getAllGametablesThunk } from "../../store/gametables";
 import css from './gametableall.module.css'
 import EditGameTableModal from '../EditGameTableForm'
 import DeleteGameTableModal from '../DeleteGameTable'
+import AddGameButton from '../addgametablebutton'
 
 
 function GetAllGameTables() {
@@ -76,6 +77,7 @@ function GetAllGameTables() {
   <div className={css.gamelistvertcenter}>
   <div className={css.gamelistoutter}>
   <Link to={`/gametables`} className={css.gamelistwords}>Table List:</Link>
+  <AddGameButton />
   <div className={css.gamecomponentsoutter}>{tablelist}</div>
   </div>
   </div>

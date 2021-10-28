@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { getSingleUserThunk } from '../../store/users';
 import GetAllCommentsforSingleUser from '../../components/commentDisplay'
+import FollowButton from '../Follow'
+
 
 function SingleUserPage() {
 
@@ -46,9 +48,12 @@ function SingleUserPage() {
         <div>Simoleans: {singleUser.currentSimoleans}</div>
         <div>Follower: {singleUser.followers.length}</div> 
         <div>Following: {singleUser.following.length}</div>
-
+    <li>
         <GetAllCommentsforSingleUser userId={singleUserid} />
-test
+    </li>
+    <li>
+        <FollowButton  userId={singleUserid}/>
+    </li>
         </div>
 
         </>
