@@ -37,6 +37,7 @@ function NewGameTable() {
 
   return (
     <>
+    <div>TESTERINO</div>
       <form onSubmit={handleSubmit}>
         <div className={css.gametable}>
           <input

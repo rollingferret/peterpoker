@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -41,9 +41,6 @@ function App() {
         <Route path='/gametables/:gametableId' exact={true}>
           <SingleGameTablePage />
         </Route>
-        <Route path='/gametables/new' exact={true}>
-          <NewGameTable />
-        </Route>
         <Route path='/gametables' exact={true}>
           <GetAllGameTables />
         </Route>
@@ -67,6 +64,18 @@ function App() {
         <ProtectedRoute path='/home' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
+        <ProtectedRoute path='/gametables/new' exact={true}>
+          <NewGameTable />
+          <Chat />
+        </ProtectedRoute>
+        <ProtectedRoute path='/newgame' exact={true}>
+          <NewGameTable />
+          <div>test</div>
+        <Chat />
+        </ProtectedRoute>
+        <Route>
+          <Redirect to="/" />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
