@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { getSingleUserThunk } from '../../store/users';
-import GetAllCommentsforSingleUser from '../commentDisplay';
+import GetAllCommentsforSingleUser from '../../components/commentDisplay'
 
 function SingleUserPage() {
 

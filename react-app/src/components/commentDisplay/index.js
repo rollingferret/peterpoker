@@ -3,10 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCommentByIdThunk } from "../../store/comments";
 import css from './commendDisplay.module.css'
+import CommentForm from '../NewCommentForm'
+import EditCommentModal from '../editcommentform'
+import DeleteCommentButton from '../deletecommentform'
+
 
 function GetAllCommentsforSingleUser({ userId }) {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
+
+
 
   useEffect(() => {
     dispatch(getCommentByIdThunk(userId));
@@ -16,55 +22,36 @@ function GetAllCommentsforSingleUser({ userId }) {
     return state.comments;
   });
 
-  let currentComments;
+  console.log(commentList, 'comment list comment list')
 
-  if (commentList) {
-    currentComments = Object.values(commentList).filter(
-      (comment) => comment.user_id === +userId
-    );
+  // console.log(Object.values(commentList))
 
-    const commentsSection = Object.values(currentComments)?.map((comment) => {
-      const newDate = comment?.created_at.split(" ");
+  const currentComments = Object.values(commentList).filter((comment) => comment.commented_user_id === +userId);
 
-      return (
-        <div
-          key={comment.id}
-          className={`single-comment ${css.outer_container}`}
-        >
-          <div className={css.comment_container}>
-            <div className={css.inner_comment}>
-              <div className={css.minsizeprofile}>
-              <div
-                alt="user_profile_image"
-                style={{ backgroundImage: `url(${comment.user.profile_url})`}}
-                className={css.user_profile_pic}
-              />
-              </div>
-              <div className={css.username_content}>
-                <Link
-                  to={`/users/${comment.user_id}`}
-                  className={css.user_name}
-                >
-                  {comment.user.username}
-                </Link>
-                <div className={css.comment_content}>{comment.content}</div>
-              </div>
-            </div>
 
-          </div>
-          <div className={css.comment_date}>
-            {newDate[2]} {newDate[1]}, {newDate[3]}
-            test
-          </div>
-        </div>
-      );
-    });
+  const commentSection = Object.values(currentComments)?.map((comment) => {
 
-    if (!commentList) {
-      return <div>things went wrong</div>;
-    } else {
-      return <>{commentsSection}</>;
-    }
+
+    console.log(comment, 'insiiiiiiiiiiiiide')
+    console.log(comment.content, 'insiiiiiiiiiiiiide')
+
+    return (
+    <>
+    <div>{comment.content}</div>
+    <div><EditCommentModal commentId={comment.id}/></div>
+    <div><DeleteCommentButton commentId={comment.id}/></div>
+    </>
+    )
+  })
+  
+  if (!commentList) return null;
+    else {
+  return (
+    <>
+    <div>{commentSection}</div>
+    <CommentForm />
+    </>
+  );
   }
 }
 

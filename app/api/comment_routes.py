@@ -27,7 +27,7 @@ def comment_route(id):
     '''
     Comment GET route by ID.
     '''
-    comments = Comment.query.filter(Comment.user_id == id).all()
+    comments = Comment.query.filter(Comment.commented_user_id == id).all()
     if not comments:
         return {}
     else:
@@ -45,7 +45,8 @@ def add_new_comment():
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
         comment = Comment(
-            user_id=userId,
+            commented_user_id=form.data['commented_user_id'],
+            commenter_user_id=userId,
             content=form.data['content'],
             created_at=datetime.now(),
             updated_at=datetime.now()
@@ -69,8 +70,8 @@ def edit(id):
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
         edited_comment = Comment.query.get(id)
-        if int(userId) == int(edited_comment.user_id):
-            edited_comment.tableName = form.data['tableName']
+        if int(userId) == int(edited_comment.commenter_user_id):
+            edited_comment.content = form.data['content']
             edited_comment.updated_at = datetime.now()
             db.session.commit()
 
