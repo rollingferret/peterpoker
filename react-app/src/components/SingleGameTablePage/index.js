@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import EditGameTableModal from '../EditGameTableForm'
 import DeleteGameTableModal from '../DeleteGameTable'
 import css from './index.module.css'
+import Chatroom from '../chatrooms/chatroom'
 
 function SingleGameTablePage() {
 
@@ -56,7 +57,7 @@ function SingleGameTablePage() {
               )}
         </div>
         </div>
-
+        <div><Chatroom roomName={`${singleTable.tableName}${singleTable.id}`}/></div>
         </>
     );
     }
