@@ -9,6 +9,7 @@ import UsersList from './components/UserList/UsersList';
 import User from './components/User/User';
 import Chat from './components/chat/chat';
 import TestGame from './components/testGame/testGame';
+import Test from './components/chatrooms/chatroom';
 import { authenticate } from './store/session';
 import HomePage from './components/homepage'
 import GetAllGameTables from './components/GameTableAll'
@@ -51,9 +52,20 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/chat' exact={true}>
-          <Chat />
-          <div>space in between</div>
+          {/* <Chat /> */}
+          {/* <div>space in between</div>
           <TestGame />
+          <div>space in between</div> */}
+          <Test />
+          {/* <div>space in between</div> */}
+        </Route>
+        <Route path='/chat2' exact={true}>
+          <Chat />
+          {/* <div>space in between</div>
+          <TestGame />
+          <div>space in between</div> */}
+          {/* <Test /> */}
+          {/* <div>space in between</div> */}
         </Route>
         <Route path='/users' exact={true} >
           <UsersList/>
@@ -64,10 +76,10 @@ function App() {
         <ProtectedRoute path='/home' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
-        <ProtectedRoute path='/gametables/new' exact={true}>
+        {/* <ProtectedRoute path='/gametables/new' exact={true}>
           <NewGameTable />
           <Chat />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/newgame' exact={true}>
           <NewGameTable />
           <div>test</div>

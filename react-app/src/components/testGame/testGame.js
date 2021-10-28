@@ -44,7 +44,7 @@ const TestGame = () => {
         <div>
             <div>hello
                 {messages.map((message, ind) => (
-                    <div key={ind}>{`${message.user}: ${message.msg}`}</div>
+                    <div key={ind}>{`${message.user}: ${message.msg} : ${ind}`}</div>
                 ))}
             </div>
             <form onSubmit={sendChat}>
@@ -54,6 +54,7 @@ const TestGame = () => {
                 />
                 <button type="submit">Send</button>
             </form>
+    });
         </div>
         <div>TEST</div>
         </>

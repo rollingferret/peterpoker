@@ -39,11 +39,12 @@ app.register_blueprint(gametables_routes, url_prefix='/api/gametables')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 db.init_app(app)
 Migrate(app, db)
+socketio.init_app(app)
+
 
 # Application Security
 CORS(app)
 
-socketio.init_app(app)
 
 
 
