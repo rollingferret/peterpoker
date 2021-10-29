@@ -57,7 +57,7 @@ function SingleGameTablePage() {
               )}
         </div>
         </div>
-        <div><Chatroom roomName={`${singleTable.tableName}${singleTable.id}`}/></div>
+        <div><Chatroom roomName={`${singleTable.id}`}/></div>
         </>
     );
     }

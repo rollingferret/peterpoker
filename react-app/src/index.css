@@ -3,7 +3,7 @@
 
 body {
     text-align: center;
-    margin: 1em;
+    /* margin: 1em; */
     font: 1em "Press start 2P";
     font-weight: 700;
 }
@@ -11,8 +11,11 @@ body {
 * {
     box-sizing: border-box;
     color: black;
+    margin: 0px;
+    padding: 0px;
 
 }
+
 
 a {
     text-decoration: none;

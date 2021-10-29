@@ -1,0 +1,79 @@
+.chatoutterdiv {
+    border: 3px solid black;
+    border-radius: 15px;
+    margin: 35px;
+    padding: 15px;
+    height: 50vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: #b8f8b8;
+}
+
+.chatoutterdiv::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.chatwordbubble {
+
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    text-align: left;
+    font-size: 1.5rem;
+
+
+}
+
+.chatoutterdivreverse {
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+.chatform {
+    width: 80%;
+    height: 100px;
+    display: flex;
+}
+
+
+.chatinput {
+    display: flex;
+    width: 70%;
+    font: 2em "Press start 2P";
+    border-radius: 15px;
+    padding: 15px;
+    margin-right: 50px;
+    transition-duration:500ms;
+}
+
+.chatinput:focus {
+    background-color:#a4e4fc;
+}   
+
+.chatinput:hover {
+    cursor: pointer;
+}
+
+.sendit {
+    width: 30%;
+    font: 1.75rem "Press start 2P";
+    transition-duration:500ms;
+    border-radius: 15px;
+}
+
+.sendit:hover {
+    background-color: #00b800;
+    cursor: pointer;
+    font-size: 2.5em;
+}
+
+.chatinputcenter {
+    display: flex;
+    justify-content: center;
+}
+
