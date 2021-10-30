@@ -22,20 +22,21 @@ const Chatroom = (props) => {
         // heroku socket
         // socket = io('https://peterpoker.herokuapp.com');
 
+
         socket.emit('join', { user: user.username, msg: `has joined room ${room}`, room: room });
 
 
         socket.on('broadcast message', (data) => {
-            console.log(data, 'chaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat2')
-            console.log(data['user'], 'chaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat2')
-            console.log(data['room'], 'chaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat2')
+            // console.log(data, 'chaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat2')
+            // console.log(data['user'], 'chaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat2')
+            // console.log(data['room'], 'chaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat2')
 
             // let broadcastMessage = {'user}
             setMessages(messages => [...messages, data])
             // console.log(data, 'chaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat2')
         })
 
-        console.log(messages, '222222222222222222222222222222')
+        // console.log(messages, '222222222222222222222222222222')
 
         // socket.emit('join', { user: user.username, channel: 'channel'});
 
@@ -61,6 +62,7 @@ const Chatroom = (props) => {
 
     return (user && (
         <>
+        <div className={css.chatcenter}>
         <div className={css.chatoutterdiv}>
             <div className={css.chatoutterdivreverse}>
                 {messages.map((message, ind) => (
@@ -79,6 +81,7 @@ const Chatroom = (props) => {
                 <button type="submit" className={css.sendit}>Send</button>
             </form>
         </div>
+        </div>  
         </div>
         
         {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script> */}

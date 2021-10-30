@@ -35,6 +35,7 @@ function EditCommentForm({ ...props }) {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               className="contentcommentdiv"
+              required={true}
             />
           </div>
           <div className="innercommentdivs-2" id="topborderlinecommentdiv">

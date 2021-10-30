@@ -4,7 +4,7 @@
 body {
     text-align: center;
     /* margin: 1em; */
-    font: 1em "Press start 2P";
+    font: 1.25em "Press start 2P";
     font-weight: 700;
 }
 
@@ -13,25 +13,25 @@ body {
     color: black;
     margin: 0px;
     padding: 0px;
+    word-break: break-word;
 
 }
 
 
 a {
     text-decoration: none;
-    word-break: break-all;
 }
   
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
 	body {
-        font: 0.7em "Press start 2P";
-        font-weight: 500;
+        font: 1em "Press start 2P";
+        /* font-weight: 500; */
 	}
 }
 
 @media screen and (max-width: 800px) {
 	body {
-        font: 0.2em "Press start 2P";
-        font-weight: 500;
+        font: 0.5em "Press start 2P";
+        /* font-weight: 500; */
 	}
 }

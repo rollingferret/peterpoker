@@ -42,22 +42,34 @@ function SingleGameTablePage() {
     } else {
     return (
         <>
-        <div>
-        <div>{singleTable.tableName}</div>
-        <div>{singleTable.players===null?singleTable.players:'No Current Players'}</div>
-        <div>{singleTable.isActive}</div>
-        <div>{singleTable.updated_at}</div>
-
+        <div className={css.needanotherwrapperforcenter}><div>
+        <div className={css.needanotherdivforcenter}>
+        <div className={css.singlepageouttermostdiv}>
+        <div className={css.infooutterdiv}>
+        <div className={css.singletablewords}>{singleTable.tableName}</div>
+        <div className={css.singletablewords}>{singleTable.players===null?singleTable.players:'No Current Players'}</div>
+        <div className={css.singletablewords}>{singleTable.isActive}</div>
+        <div className={css.singletablewords}>{singleTable.updated_at}</div>
+        </div>
         <div className={css.editdeletebuttons}>
+            <div className={css.buttonsspread}>
               {currentUser && currentUser.id === singleTable.tableCreator && (
                 <>
-                  <EditGameTableModal gametableId={singleTable.id} />
-                  <DeleteGameTableModal gametableId={singleTable.id} />
+                <div>
+                  <EditGameTableModal className={css.editbutton} gametableId={singleTable.id} />
+                </div>
+                <div>
+                  <DeleteGameTableModal className={css.deletebutton} gametableId={singleTable.id} />
+                </div>
                 </>
               )}
+            </div>
+        </div>
         </div>
         </div>
         <div><Chatroom roomName={`${singleTable.id}`}/></div>
+        </div>
+        </div>
         </>
     );
     }

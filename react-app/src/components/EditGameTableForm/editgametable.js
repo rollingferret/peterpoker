@@ -20,9 +20,11 @@ function EditGameTableForm({ ...props }) {
       tableName: tableName,
     };
 
-    return dispatch(updateGameTableThunk(edited_gametable)).then(async () =>
-      props.onClose()
-    );
+    // return dispatch(updateGameTableThunk(edited_gametable)).then(async () =>
+    //   props.onClose()
+
+    return dispatch(updateGameTableThunk(edited_gametable))
+    // );
   };
 
   return (
@@ -40,6 +42,7 @@ function EditGameTableForm({ ...props }) {
               onChange={(e) => setTableName(e.target.value)}
               placeholder="Table Name"
               className="contentcommentdiv"
+              required={true}
             />
           </div>
           <div className="innercommentdivs-2" id="topborderlinecommentdiv">

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { login } from "../../store/session";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -11,6 +12,13 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
+
+
+  const demoUser = async () => {
+    await dispatch(login("Demo", "password"));
+    history.push("/home");
+  };
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -19,6 +27,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(["Passwords don't match"])
     }
   };
 
@@ -43,6 +53,7 @@ const SignUpForm = () => {
   }
 
   return (
+    <>
     <form onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
@@ -56,6 +67,7 @@ const SignUpForm = () => {
           name='username'
           onChange={updateUsername}
           value={username}
+          required={true}
         ></input>
       </div>
       <div>
@@ -65,6 +77,7 @@ const SignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+          required={true}
         ></input>
       </div>
       <div>
@@ -74,6 +87,7 @@ const SignUpForm = () => {
           name='password'
           onChange={updatePassword}
           value={password}
+          required={true}
         ></input>
       </div>
       <div>
@@ -88,6 +102,10 @@ const SignUpForm = () => {
       </div>
       <button type='submit'>Sign Up</button>
     </form>
+        <button onClick={demoUser}>
+        Demo User
+    </button>
+    </>
   );
 };
 
