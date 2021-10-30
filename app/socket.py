@@ -41,8 +41,8 @@ def handle_chat(data):
 @socketio.on('broadcast message')
 def message(data):
     room = data['room']
-    print(room, '999999999999999999999999999999999999')
-    print(data, '11111111111111111111111111111111111111')
+    # print(room, '999999999999999999999999999999999999')
+    # print(data, '11111111111111111111111111111111111111')
     emit('broadcast message', data, room=room, broadcast=True)
 
 @socketio.on('join')

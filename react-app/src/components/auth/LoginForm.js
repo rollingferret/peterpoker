@@ -43,23 +43,23 @@ const LoginForm = () => {
         ))}
       </div>
       <div>
-        <label htmlFor='email'>Email</label>
         <input
           name="login_param"
           type="text"
           placeholder="Username or Email"
           value={login_param}
           onChange={updateLoginParam}
+          required={true}
         />
       </div>
       <div>
-        <label htmlFor='password'>Password</label>
         <input
           name='password'
           type='password'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
+          required={true}
         />
         <button type='submit'>Login</button>
       </div>

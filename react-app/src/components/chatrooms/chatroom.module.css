@@ -1,9 +1,18 @@
+.chatcenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .chatoutterdiv {
     border: 3px solid black;
     border-radius: 15px;
     margin: 35px;
     padding: 15px;
-    height: 50vh;
+    width: 80%;
+    height: 55vh;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -23,7 +32,7 @@
     padding: 15px;
     background-color: #f8f8f8;
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 
 
 }
@@ -35,7 +44,7 @@
 }
 
 .chatform {
-    width: 80%;
+    width: 80vw;
     height: 100px;
     display: flex;
 }
@@ -44,10 +53,10 @@
 .chatinput {
     display: flex;
     width: 70%;
-    font: 2em "Press start 2P";
+    font: 1em "Press start 2P";
     border-radius: 15px;
     padding: 15px;
-    margin-right: 50px;
+    margin-right: 15px;
     transition-duration:500ms;
 }
 
@@ -57,19 +66,21 @@
 
 .chatinput:hover {
     cursor: pointer;
+    background-color:#a4e4fc;
 }
 
 .sendit {
     width: 30%;
-    font: 1.75rem "Press start 2P";
+    font: 1.5rem "Press start 2P";
     transition-duration:500ms;
     border-radius: 15px;
+    background-color: #f1f1f1;
 }
 
 .sendit:hover {
     background-color: #00b800;
     cursor: pointer;
-    font-size: 2.5em;
+    font-size: 2rem;
 }
 
 .chatinputcenter {
@@ -77,3 +88,22 @@
     justify-content: center;
 }
 
+@media screen and (max-width: 1000px) {
+    .sendit {
+        padding: 10px;
+        font-size: 1rem;
+    }   
+
+    .chatinput {
+        margin-right: 8px;
+    }
+    .chatwordbubble {
+
+        font-size: 1rem;
+    
+    
+    }
+    .sendit:hover {
+        font-size: 1.25rem;
+    }
+}

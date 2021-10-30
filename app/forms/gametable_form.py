@@ -6,5 +6,5 @@ from wtforms.validators import DataRequired
 
 
 class NewGameTable(FlaskForm):
-    tableName = StringField("Table Name")
+    tableName = StringField("Table Name", [DataRequired()])
     submit = SubmitField("Post")

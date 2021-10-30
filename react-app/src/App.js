@@ -39,9 +39,9 @@ function App() {
         <Route path='/' exact={true}>
           <HomePage />
         </Route>
-        <Route path='/gametables/:gametableId' exact={true}>
+        <ProtectedRoute path='/gametables/:gametableId' exact={true}>
           <SingleGameTablePage />
-        </Route>
+        </ProtectedRoute>
         <Route path='/gametables' exact={true}>
           <GetAllGameTables />
         </Route>
@@ -50,22 +50,6 @@ function App() {
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
-        </Route>
-        <Route path='/chat' exact={true}>
-          {/* <Chat /> */}
-          {/* <div>space in between</div>
-          <TestGame />
-          <div>space in between</div> */}
-          <Test />
-          {/* <div>space in between</div> */}
-        </Route>
-        <Route path='/chat2' exact={true}>
-          <Chat />
-          {/* <div>space in between</div>
-          <TestGame />
-          <div>space in between</div> */}
-          {/* <Test /> */}
-          {/* <div>space in between</div> */}
         </Route>
         <Route path='/users' exact={true} >
           <UsersList/>
@@ -76,13 +60,8 @@ function App() {
         <ProtectedRoute path='/home' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
-        {/* <ProtectedRoute path='/gametables/new' exact={true}>
-          <NewGameTable />
-          <Chat />
-        </ProtectedRoute> */}
         <ProtectedRoute path='/newgame' exact={true}>
           <NewGameTable />
-          <div>test</div>
         <Chat />
         </ProtectedRoute>
         <Route>
