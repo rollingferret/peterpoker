@@ -38,7 +38,8 @@
     width: 80%;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #00b800;
+    background-color: #f1f1f1;
+    border-left: 2px solid black;
     border-radius: 0px 10px 10px 0px;
 
 }

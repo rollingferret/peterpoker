@@ -27,7 +27,7 @@
 }
 
 
-.follow_button {
+.follow_button1 {
 
     height: 100%;
     width: 100%;
@@ -39,10 +39,36 @@
     /* background-color: blue; */
 }
 
-.follow_button:hover {
+.follow_button1:hover {
 
     font-size: 1.5rem;
+    /* background-color: #3cbcfc; */
+    background-color: red;
+
+    cursor: pointer;
+    border-radius: 15px;
+    /* transition-duration:500ms; */
+
+}
+
+.follow_button2 {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration:500ms;
+
+    /* background-color: blue; */
+}
+
+.follow_button2:hover {
+
+    font-size: 1.5rem;
+    /* background-color: red; */
     background-color: #3cbcfc;
+
     cursor: pointer;
     border-radius: 15px;
     /* transition-duration:500ms; */
