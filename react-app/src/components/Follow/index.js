@@ -31,17 +31,17 @@ const FollowButton = ({ userId }) => {
   return (
     <>
       {isFollowing && (
-        <div className={css.follow_button_div}>
-          <button className={css.follow_button} onClick={unfollowUser}>
+        <div className={css.follow_button_div1}>
+          <div className={css.follow_button} onClick={unfollowUser}>
             Unfollow
-          </button>
+          </div>
         </div>
       )}
       {!isFollowing && (
-        <div className={css.follow_button_div}>
-          <button className={css.follow_button} onClick={followUser}>
+        <div className={css.follow_button_div2}>
+          <div className={css.follow_button} onClick={followUser}>
             Follow
-          </button>
+          </div>
         </div>
       )}
     </>

@@ -1,3 +1,50 @@
-.follow_button_div {
-    background-color: red;
+.follow_button_div1 {
+    /* background-color: #a4e4fc;   */
+    background-color: #E76E55;
+
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+
+}
+
+.follow_button_div2 {
+    /* background-color: #E76E55; */
+    background-color: #a4e4fc;
+
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+
+}
+
+
+.follow_button {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration:500ms;
+
+    /* background-color: blue; */
+}
+
+.follow_button:hover {
+
+    font-size: 1.5rem;
+    background-color: #3cbcfc;
+    cursor: pointer;
+    border-radius: 15px;
+    /* transition-duration:500ms; */
+
 }
