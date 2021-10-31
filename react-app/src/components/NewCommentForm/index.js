@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addCommentThunk } from "../../store/comments";
-
-import css from "./newcommentform.module.css";
+import styles from './newcommentform.module.css'
 
 function CommentForm() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -12,6 +11,8 @@ function CommentForm() {
   const dispatch = useDispatch();
 
   const [content, setContent] = useState("");
+  const [errors, setErrors] = useState([]);
+
 
   const { pathname } = history.location;
   const userId = pathname.split("/")[2];
@@ -30,29 +31,47 @@ function CommentForm() {
 
         let res = await dispatch(addCommentThunk(comment));
 
+        // if (res) {
+        //   setContent("");
+        // }
         if (res) {
-          setContent("");
+          setErrors(res);
         }
+
+        console.log(res, '77777777777777777777777777777777777777')
+        console.log(errors, '999999999999999999999999999999999999999999999');
+
+
+
       }
     }
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className={css.comment_container}>
+    <div className={styles.editgamegame}>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+    </div>
+    <div className={styles.outtermostdiv}>
+      <form onSubmit={handleSubmit} className={styles.deletecommentbuttoncss}>
+        {/* <div className={css.comment_container}> */}
           <input
             type="content"
             value={content}
             placeholder="Add a comment..."
             onChange={(e) => setContent(e.target.value)}
-            className={css.comment_text}
+            className={styles.deletebuttoninnercss}
+            required={true}
           />
-          <button type="submit" className={css.comment_btn}>
+          {/* </div> */}
+
+          <button type="submit" className={styles.deletebuttonsubmitcss}>
             Post
           </button>
-        </div>
       </form>
+    </div>
     </>
   );
 }
