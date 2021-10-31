@@ -11,8 +11,8 @@ function DeleteGameTableButton(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(delGametableThunk(props.gametableId));
-    history.push("/gametables");
+    dispatch(delGametableThunk(props.gametableId)).then(async () => props.onClose());
+    // history.push("/gametables");
   };
 
   return (

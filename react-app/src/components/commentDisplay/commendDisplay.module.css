@@ -51,7 +51,7 @@
 
 .commentbuttons {
 
-    background-color: red; 
+    /* background-color: red;  */
     display: flex;
     flex-direction: row;  
 }
@@ -74,11 +74,18 @@
     align-items: center;
     /* padding: 15px; */
     /* margin: 15px; */
-    background-color: red;
+    /* background-color: red; */
     width: 100%;
 
 }
 
 .username {
+
+    margin-left: 25px;
+}
+
+.commentcontent {
+
+    margin-left: 25px;
 
 }

@@ -61,7 +61,7 @@ export const addCommentThunk = (comment) => async (dispatch) => {
 export const updateCommentThunk =
   ({ id, content }) =>
   async (dispatch) => {
-    const res = await fetch(`/api/comments/edit/${id}`, {
+    const response = await fetch(`/api/comments/edit/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -69,10 +69,23 @@ export const updateCommentThunk =
       body: JSON.stringify({ content }),
     });
 
-    if (res.ok) {
-      const query = await res.json();
-      dispatch(editCommentsAction(query));
-      return { ok: true };
+    // if (response.ok) {
+    //   const query = await response.json();
+    //   dispatch(editCommentsAction(query));
+    //   return { ok: true };
+    // }
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(editCommentsAction(data))
+      return null;
+    } else if (response.status < 500) {
+      const data = await response.json();
+      if (data.errors) {
+        return data.errors;
+      }
+    } else {
+      return ['An error occurred. Please try again.']
     }
   };
 

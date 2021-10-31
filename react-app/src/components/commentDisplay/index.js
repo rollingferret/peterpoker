@@ -61,18 +61,18 @@ function GetAllCommentsforSingleUser({ userId }) {
 
 
 
-    console.log(comment.commenter_user_id, 'insiiiiiiiiiiiiide')
+    // console.log(comment.commenter_user_id, 'insiiiiiiiiiiiiide')
 
     let username;
     let useravatar;
     const userComponents = users.map((user) => {
 
-      console.log(user.id, '1111111111111111111111111111111111')
-      console.log(comment.commenter_user_id, '222222222222222222222222222222222222222')
+      // console.log(user.id, '1111111111111111111111111111111111')
+      // console.log(comment.commenter_user_id, '222222222222222222222222222222222222222')
       if (user.id === comment.commenter_user_id) {
         username = user.username;
         useravatar = user.avatar_url;
-        console.log(useravatar, '333333333333333333333333333333333333333333')
+        // console.log(useravatar, '333333333333333333333333333333333333333333')
       }
     });
     // console.log(comment.content, 'insiiiiiiiiiiiiide')
@@ -83,8 +83,8 @@ function GetAllCommentsforSingleUser({ userId }) {
     <div className={css.commentdisplayoutter}>
     <div className={css.commentdisplaysetter}>
     <div className={css.commentprofile} style={{backgroundImage: `url(${useravatar?useravatar:`${poro}`})`}}></div>
-    <div>{username}</div>
-    <div>{comment.content}</div>
+    <div className={css.username}>{username}:</div>
+    <div className={css.commentcontent}>{comment.content}</div>
     </div>
 
 
@@ -97,8 +97,8 @@ function GetAllCommentsforSingleUser({ userId }) {
     {currentUser && currentUser.id === comment.commenter_user_id && (
     <>
     <div className={css.commentbuttons}>
-    <div><EditCommentModal commentId={comment.id}/></div>
-    <div><DeleteCommentButton commentId={comment.id}/></div>
+    <div><EditCommentModal commentId={comment.id} className={css.editbutton}/></div>
+    <div><DeleteCommentButton commentId={comment.id} className={css.deletebutton}/></div>
     </div>
     </>
     )}
