@@ -1,14 +1,20 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateCommentThunk } from "../../store/comments";
-import './editcommentform.css'
+import css from './editcommentform.module.css'
+
 
 function EditCommentForm({ ...props }) {
   const dispatch = useDispatch();
 
-  const [content, setContent] = useState("");
+  const currentcomment = useSelector((state) => state.comments[props.commentId]);  
 
-  const handleSubmit = (e) => {
+  const [content, setContent] = useState(`${currentcomment.content}`);
+  const [errors, setErrors] = useState([]);
+
+  // console.log(currentcomment, 'cuuuuuuuuuuuuuuuuuuuuuurent')
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let edited_comment = {
@@ -16,34 +22,50 @@ function EditCommentForm({ ...props }) {
       content: content,
     };
 
-    return dispatch(updateCommentThunk(edited_comment)).then(async () =>
+    // return dispatch(updateCommentThunk(edited_comment)).then(async () =>
+    //   props.onClose()
+    // );
+
+    const data =  await dispatch(updateCommentThunk(edited_comment))
+
+
+    if (data) {
+      setErrors(data);
+    } else {
+
       props.onClose()
-    );
+    }
+    console.log(errors, 'errrrrrrrrrrrorrrrrrrrrrrrs')
   };
 
   return (
     <>
-      <div className="outtereditcommentdiv">
+      <div className={css.outtereditcommentdiv}>
       {/* <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div> */}
-        <form onSubmit={handleSubmit} className="commentdivform">
-          <div className="innercommentdivs-2">
+        <form onSubmit={handleSubmit} className={css.commentdivform}>
+          <div className={css.innercommentdivs2}>
             <label>Edit Comment</label>
+            <div className={css.editgamegame}>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
           </div>
-          <div className="innercommentdivs" id="topborderlinecommentdiv">
+          </div>
+          <div className={css.innercommentdivs} id={css.topborderlinecommentdiv}>
             <input
               type="content"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="contentcommentdiv"
+              className={css.contentcommentdiv}
               required={true}
             />
           </div>
-          <div className="innercommentdivs-2" id="topborderlinecommentdiv">
-            <button type="submit" className="buttoncommentdivmodal">
+          <div className={css.innercommentdivs2} id={css.topborderlinecommentdiv}>
+            <button type="submit" className={css.buttoncommentdivmodal}>
               Edit!
             </button>
           </div>

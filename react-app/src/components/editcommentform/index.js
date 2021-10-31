@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/modal';
 import EditCommentForm from './editcommentform';
+import css from './editcommentform.module.css'
 
 function EditCommentModal(props) {
   const [showModal, setShowModal] = useState(false);
@@ -10,7 +11,7 @@ function EditCommentModal(props) {
   return (
     <>
       <button
-        className={`far fa-edit`}
+        className={`far fa-edit`} id={css.editbutton}
       onClick={() => setShowModal(true)}></button>
       {showModal && (
         <Modal onClose={onClose}>

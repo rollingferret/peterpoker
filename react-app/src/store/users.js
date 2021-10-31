@@ -4,12 +4,18 @@ const GET_USERS = "users/GET_USERS";
 const FOLLOW_USER = "users/FOLLOW_USERS";
 const UNFOLLOW_USER = "users/UNFOLLOW_USERS";
 const GET_SINGLEUSER = "users/GET_SINGLEUSER";
+const GET_MOST = "users/GET_MOST";
 
 
 // actions
 const getSingleUserAction = (user) => ({
   type: GET_SINGLEUSER,
   payload: user,
+});
+
+const getAllUsersAction = (users) => ({
+  type: GET_MOST,
+  payload: users,
 });
 
 
@@ -84,6 +90,17 @@ export const getSingleUserThunk = (id) => async (dispatch) => {
   }
 };
 
+export const getMostUsersThunk = () => async (dispatch) => {
+  const res = await fetch("/api/users");
+
+  console.log(res, 'check hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+
+  // if (res.ok) {
+  //   const query = await res.json();
+  //   dispatch(getAllUsersAction(query));
+  // }
+};
+
 const initialState = {};
 
 // reducer
@@ -94,6 +111,7 @@ export default function reducer(state = initialState, action) {
       const users = action.payload;
       newState = { ...newState, ...users };
       return newState;
+
     case GET_SINGLEUSER:
       newState = Object.assign({}, state);
       // newState[action.payload.id] = action.payload[4];
@@ -102,6 +120,14 @@ export default function reducer(state = initialState, action) {
  
       return newState;
       // return action.payload
+    
+    case GET_MOST:
+      newState = Object.assign({}, state);
+      const allusers = action.payload;
+      // Object.values(allusers).forEach((user) => {newState[user.id] = user;});
+      // return newState;
+      return action.payload;
+
     case FOLLOW_USER:
       const { follower, following } = action.payload;
       newState[follower.id] = follower;

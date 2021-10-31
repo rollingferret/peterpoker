@@ -37,6 +37,13 @@
     transition-duration:500ms;
 
     /* background-color: blue; */
+    overflow-y: scroll;
+
+}
+
+.follow_button1::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 .follow_button1:hover {
@@ -59,8 +66,14 @@
     justify-content: center;
     align-items: center;
     transition-duration:500ms;
+    overflow-y: scroll;
 
     /* background-color: blue; */
+}
+
+.follow_button2::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 .follow_button2:hover {

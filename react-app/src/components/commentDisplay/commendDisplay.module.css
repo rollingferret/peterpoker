@@ -1,0 +1,91 @@
+.commentsectionoutter {
+
+    /* background-color:red; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.commentsection {
+
+    /* background-color:red; */
+    background-color: #f1f1f1;
+    height: 90%;
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentsection::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.commentcommentform {
+
+    background-color:blue;
+    height: 10%;
+    width: 100%;
+}
+
+.commentdisplayoutter {
+
+    background-color: green; 
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+    font-size: 1.5rem;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid black;
+    align-items: center;
+
+
+
+}
+
+.commentbuttons {
+
+    /* background-color: red;  */
+    display: flex;
+    flex-direction: row;  
+}
+
+.commentprofile {
+    min-height: 100px;
+    min-width: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: #f1f1f1;
+}
+
+.commentdisplaysetter {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* padding: 15px; */
+    /* margin: 15px; */
+    /* background-color: red; */
+    width: 100%;
+
+}
+
+.username {
+
+    margin-left: 25px;
+}
+
+.commentcontent {
+
+    margin-left: 25px;
+
+}

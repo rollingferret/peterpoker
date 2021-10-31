@@ -13,12 +13,18 @@
     flex-direction: row;
     justify-content: space-around;
 
+    overflow-y: scroll;
 
 
 }
 
+.singleuseroutter::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
 .singleuseruserinfo {
-    background-color: #92CD41;
+    background-color: #b8f8b8;
     height: 100%;
     width: 20%;
     padding: 15px;
@@ -30,6 +36,21 @@
     /* background-color: #00b800; */
 
 
+}
+
+.wordslist {
+    /* background-color: red; */
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.wordslist::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 .singleusercomments {
@@ -51,8 +72,9 @@
     background-image: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: blue;
+    background-color: #a4e4fc;
     margin-top: 15px;
+    border: 2px solid black;
 }
 
 .singleuserfollow {
@@ -61,4 +83,11 @@
     height: 8%;
     width: 100%;
     border-radius: 15px;
+}
+
+@media screen and (max-width: 800px) {
+    .useravatar {
+        height: 100px;
+        width: 100px;
+    }
 }

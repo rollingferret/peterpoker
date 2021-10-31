@@ -46,6 +46,7 @@ function SingleUserPage() {
         <div className={css.singleuseroutter}>
         <div className={css.singleuseruserinfo}>
         <div className={css.useravatar} style={{backgroundImage: `url(${singleUser.avatar_url?singleUser.avatar_url:`${poro}`})`}}></div>
+        <div className={css.wordslist}>
         <div>Username: {singleUser.username}</div>
         <div>Email: {singleUser.email}</div>
         <div>{singleUser.bio?`Bio: ${singleUser.bio}`:null}</div>
@@ -53,6 +54,7 @@ function SingleUserPage() {
         {/* <div>Simoleans: {singleUser.currentSimoleans}</div> */}
         <div>Follower: {singleUser.followers.length}</div> 
         <div>Following: {singleUser.following.length}</div>
+        </div>
 
 
         {currentUser && currentUser.id !== singleUser.id && (
