@@ -16,7 +16,7 @@
 
 .homepagelist {
     display: flex;
-    margin: 40px;
+    margin: 30px;
 }
 
 .leftinnterlist {
@@ -27,4 +27,21 @@
 .rightinnterlist {
     width: 60%;
     margin-left: 15px;
+}
+
+.gamewindow {
+
+    background-color: #92CD41;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px 15px 0px 0px;
+    height: 30px;
+    border-bottom: 3px solid black;
+    transition-duration:500ms;
+
+}
+
+.gamewindow:hover {
+    background-color: #00b800;
 }

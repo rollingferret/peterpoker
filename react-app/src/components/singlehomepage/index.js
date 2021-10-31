@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import UsersList from '../UserList/UsersList'
 import GetAllGameTables from '../GameTableAll'
 import css from './singlehomepage.module.css'
@@ -15,7 +15,7 @@ function SingleHomePage() {
 
 
 
-    console.log(currentUser.id, 'cureeeeeeeeeeeeenutser')
+    // console.log(currentUser.id, 'cureeeeeeeeeeeeenutser')
     // const {pathname} = history.location
     // const singleUserid = pathname.split("/")[2]
 
@@ -41,7 +41,8 @@ function SingleHomePage() {
         <>
         <div className={css.outtermostdiv}>
         <div>
-            <div>TEST</div>
+            <div><Link to={`/users/${currentUser.id}`} className={css.gamewindow}>Visit your user page!</Link></div>
+            
         </div>
         <div className={css.homepagelist}>
             <div className={css.leftinnterlist}><UsersList /></div>
