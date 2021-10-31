@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/modal';
 import AddGameButton from './addgamebutton';
+import css from './addgamebutton.module.css'
 
 function AddGameModal() {
   const [showModal, setShowModal] = useState(false);
@@ -9,9 +10,9 @@ function AddGameModal() {
 
   return (
     <>
-      <button
-        className={`far fa-edit`}
-      onClick={() => setShowModal(true)}></button>
+      <div
+        className={`fa fa-plus`} id={css.testaddgamebutton}
+      onClick={() => setShowModal(true)}></div>
       {showModal && (
         <Modal onClose={onClose}>
           <AddGameButton onClose={onClose}/>

@@ -48,7 +48,7 @@ export const getSingleGametablesThunk = (id) => async (dispatch) => {
 };
 
 export const addGameTableThunk = (table) => async (dispatch) => {
-  const res = await fetch("/api/gametables/new", {
+  const response = await fetch("/api/gametables/new", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -56,12 +56,24 @@ export const addGameTableThunk = (table) => async (dispatch) => {
     body: JSON.stringify(table),
   });
 
-  if (res.ok) {
-    const new_table = await res.json();
+  // if (res.ok) {
+  //   const new_table = await res.json();
 
-    dispatch(addGametableAction(new_table));
+  //   dispatch(addGametableAction(new_table));
 
-    return { ok: true };
+  //   return { ok: true };
+  // }
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(addGametableAction(data))
+    return null;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
   }
 };
 

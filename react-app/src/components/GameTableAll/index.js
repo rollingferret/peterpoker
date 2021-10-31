@@ -20,6 +20,7 @@ function GetAllGameTables() {
     return state.gametables;
   });
 
+
   // console.log(gameTableList, '888888888888888888888888888888888')
 
   // Object.values(gameTableList).map((table) => {
@@ -36,8 +37,8 @@ function GetAllGameTables() {
         <Link to={`/gametables/${table.id}`} className={css.gamewindow}>
           <div>{table.tableName}</div>
           {/* <div>{table.players===null?table.players:'No Current Players'}</div> */}
-          <div>{table.isActive}</div>
-          <div>{table.updated_at}</div>
+          {/* <div>{table.isActive}</div> */}
+          <div className={css.words}>{table.updated_at}</div>
         </Link>
 
         <div className={css.editdeletebuttons}>
@@ -77,8 +78,26 @@ function GetAllGameTables() {
   <div className={css.gamelistvertcenter}>
   <div className={css.gamelistoutter}>
   <Link to={`/gametables`} className={css.gamelistwords}>Table List:</Link>
-  <AddGameButton />
-  <div className={css.gamecomponentsoutter}>{tablelist}</div>
+  <div className={css.gamecomponentsoutter}>
+    {tablelist}
+
+
+    {currentUser && (
+
+
+    <div className={css.tablecard} id={css.addtablecard1}>
+        {/* <EditGameTableModal gametableId={table.id}/>
+        <DeleteGameTableModal gametableId={table.id}/> */}
+
+        <div className={css.gamewindow} id={css.addtablecard2}>
+          <div className={css.addgamebutton}><AddGameButton className={css.actualbutton}/></div>
+          {/* <div>{table.players===null?table.players:'No Current Players'}</div> */}
+          {/* <div>{table.isActive}</div> */}
+          <div>Create a new game table!</div>
+        </div>
+    </div>
+    )}
+    </div>
   </div>
   </div>
   </>

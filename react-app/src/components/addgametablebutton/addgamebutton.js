@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addGameTableThunk } from "../../store/gametables";
 import css from './addgamebutton.module.css'
 
-function AddGameButton() {
+function AddGameButton({ ...props}) {
 
   const sessionUser = useSelector((state) => state.session.user);
 
@@ -12,6 +12,7 @@ function AddGameButton() {
   const dispatch = useDispatch();
 
   const [tablename, setTablename] = useState("");
+  const [errors, setErrors] = useState([]);
 
 
   const handleSubmit = async (e) => {
@@ -27,9 +28,20 @@ function AddGameButton() {
 
         let res = await dispatch(addGameTableThunk(newgametable));
 
+        // if (res) {
+        //     setTablename("");
+        //     history.push("/gametables");
+        // }
+
+        // if (res) {
+        //   setErrors(res);
+        // }
+
         if (res) {
-            setTablename("");
-            history.push("/gametables");
+          setErrors(res);
+        } else {
+    
+          props.onClose()
         }
       }
     }
@@ -37,21 +49,35 @@ function AddGameButton() {
 
   return (
     <>
-    <div>TESTERINO</div>
-      <form onSubmit={handleSubmit}>
-        <div className={css.gametable}>
+    <div className={css.addoutterdiv}>
+
+      <form onSubmit={handleSubmit} className={css.adddivform}>
+        <div className={css.inneradddivs2}>
+          <label>Create a Table!</label>
+          <div className={css.editgamegame}>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          </div>
+          <div className={css.inneradddivs} id={css.topborderlinediv}>
+
           <input
             type="tablename"
             value={tablename}
             placeholder="Add a table name..."
             onChange={(e) => setTablename(e.target.value)}
-            className={css.gametable}
+            className={css.gametablecontent}
+            required={true}
           />
-          <button type="submit" className={css.gametable}>
-            Create a table!
+          </div>
+          <div className={css.inneradddivs2} id={css.topborderlinediv}>
+          <button type="submit" className={css.buttondivmodal}>
+            Create!
           </button>
-        </div>
+          </div>
       </form>
+      </div>
     </>
   );
 }
