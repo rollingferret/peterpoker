@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateCommentThunk } from "../../store/comments";
-import css from './editcommentform.module.css'
-
+import './editcommentform.css'
 
 function EditCommentForm({ ...props }) {
   const dispatch = useDispatch();
@@ -25,6 +24,11 @@ function EditCommentForm({ ...props }) {
   return (
     <>
       <div className="outtereditcommentdiv">
+      {/* <div>
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div> */}
         <form onSubmit={handleSubmit} className="commentdivform">
           <div className="innercommentdivs-2">
             <label>Edit Comment</label>

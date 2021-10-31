@@ -1,21 +1,22 @@
 .deletecommentbuttoncss {
 
-    height: 125px;
-    width: 250px;
-    display:flex;
-    border-radius: 3px;
-
+    height: 30vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 10px;
 }
 
 .deletebuttoninnercss {
 
     height: 100%;
-    width: 40%;
     text-align: center;
     background-color: rgba(240, 240, 240, 1);
 
     display: flex;
     align-items: center;
+    border-radius: 10px;
 
 }
 
@@ -23,8 +24,10 @@
 
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 149, 246, 0.8);
+    background-color: #E76E55;
     transition-duration:500ms;
+    border-radius: 0px 10px 10px 0px;
+    font: 1.25rem "Press start 2P";
 
 
 }
@@ -35,15 +38,27 @@
     width: 100%;
     background-color: red;
     cursor: pointer;
+    font-size: 2rem;
 }
 
 #deletebutton {
 
-    height: 30px;
-    width: 30px;
-    border-radius: 15px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #E76E55;
+    cursor: pointer;;
+    margin-bottom: 10px;
+    transition-duration:500ms;
+    border: 2px solid black;
+    
+}
+
+#deletebutton:hover {
     background-color: red;
+    cursor: pointer;
+
 }

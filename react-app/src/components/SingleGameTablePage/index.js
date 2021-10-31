@@ -47,7 +47,7 @@ function SingleGameTablePage() {
         <div className={css.singlepageouttermostdiv}>
         <div className={css.infooutterdiv}>
         <div className={css.singletablewords}>{singleTable.tableName}</div>
-        <div className={css.singletablewords}>{singleTable.players===null?singleTable.players:'No Current Players'}</div>
+        {/* <div className={css.singletablewords}>{singleTable.players===null?singleTable.players:'No Current Players'}</div> */}
         <div className={css.singletablewords}>{singleTable.isActive}</div>
         <div className={css.singletablewords}>{singleTable.updated_at}</div>
         </div>
