@@ -95,10 +95,10 @@ export const getMostUsersThunk = () => async (dispatch) => {
 
   // console.log(res, 'check hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
 
-  // if (res.ok) {
-  //   const query = await res.json();
-  //   dispatch(getAllUsersAction(query));
-  // }
+  if (res.ok) {
+    const query = await res.json();
+    dispatch(getAllUsersAction(query));
+  }
 };
 
 const initialState = {};
@@ -124,9 +124,9 @@ export default function reducer(state = initialState, action) {
     case GET_MOST:
       newState = Object.assign({}, state);
       const allusers = action.payload;
-      // Object.values(allusers).forEach((user) => {newState[user.id] = user;});
-      // return newState;
-      return action.payload;
+      Object.values(allusers).forEach((user) => {newState[user.id] = user;});
+      return newState;
+      // return action.payload;
 
     case FOLLOW_USER:
       const { follower, following } = action.payload;

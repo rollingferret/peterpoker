@@ -74,6 +74,7 @@ function GetAllCommentsforSingleUser({ userId }) {
         useravatar = user.avatar_url;
         // console.log(useravatar, '333333333333333333333333333333333333333333')
       }
+      return 'okay';
     });
     // console.log(comment.content, 'insiiiiiiiiiiiiide')
     // const data = dispatch(getSingleUserThunk(+comment.commenter_user_id))

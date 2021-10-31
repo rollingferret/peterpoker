@@ -1,12 +1,12 @@
 import React from "react";
-import UsersList from "../UserList/UsersList";
+// import UsersList from "../UserList/UsersList";
 import css from './homepage.module.css'
 import github from "../../assets/github.png";
 import linkedin from "../../assets/linkedin.png";
-import GetAllGameTables from '../GameTableAll'
+// import GetAllGameTables from '../GameTableAll'
 import SignUpForm from '../auth/SignUpForm'
 import Chat from '../chat/chat'
-import Chatroom from '../chatrooms/chatroom'
+// import Chatroom from '../chatrooms/chatroom'
 
 
 function HomePage() {
