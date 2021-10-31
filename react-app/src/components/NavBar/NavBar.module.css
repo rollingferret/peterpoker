@@ -76,7 +76,13 @@
 	border: 3px solid black;
 	border-radius: 15px;
 	font-size: larger;
+	transition-duration:500ms;
 
+	/* background-color:red; */
+}
+
+.homenavlink:hover {
+	background-color: #f8b800;
 }
 
 .leftoutterdiv:hover {
@@ -139,6 +145,13 @@
 	border: 3px solid black;
 	border-radius: 15px;
 	font-size: larger;
+}
+
+.navlogin:hover {
+	/* background-color: #00b800; */
+	/* background-color: red; */
+
+
 }
 
 .rightbuttons {

@@ -32,14 +32,22 @@ function SingleGameTablePage() {
         return state.gametables[singleGameTableId];
     });
 
+    const allTables = useSelector(state => {
+      return state.gametables;
+  });
+
 
     // console.log(singleTable,'999999999999999999999999')
     // console.log(singleTable.id,'999999999999999999999999')
 
+    console.log(allTables)
+    if (Object.keys(allTables).length !== 0 && allTables[singleGameTableId] === undefined) {
+      history.push("/gametables");
+    }
 
     if (!singleTable) {
         // return null;
-        history.push("/gametables");
+        // history.push("/gametables");
         return null;
 
     } else {

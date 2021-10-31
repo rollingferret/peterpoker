@@ -8,4 +8,9 @@
 	border: 3px solid black;
 	border-radius: 15px;
 	font-size: larger;
+	transition-duration:500ms;
+}
+
+.outtermodaldiv:hover {
+	background-color: #00b800;
 }

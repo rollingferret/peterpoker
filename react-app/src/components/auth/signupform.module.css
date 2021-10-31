@@ -58,7 +58,7 @@
 }
 
 .buttondivmodal:hover {
-    background-color: green;
+    background-color: #00b800;
     cursor: pointer;
     font-size: 1.75rem;
 }

@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { getSingleUserThunk } from '../../store/users';
 import GetAllCommentsforSingleUser from '../../components/commentDisplay'
 import FollowButton from '../Follow'
+import css from './singleuserpage.module.css'
+import poro from "../../assets/bouncingporo.gif";
+
 
 
 function SingleUserPage() {
@@ -40,20 +43,29 @@ function SingleUserPage() {
     } else {
     return (
         <>
-        <div>
-        <div>{singleUser.username}</div>
-        <div>{singleUser.email}</div>
-        <div>{singleUser.bio}</div>
-        <div>{singleUser.avatar_url}</div>
-        <div>Simoleans: {singleUser.currentSimoleans}</div>
+        <div className={css.singleuseroutter}>
+        <div className={css.singleuseruserinfo}>
+        <div className={css.useravatar} style={{backgroundImage: `url(${singleUser.avatar_url?singleUser.avatar_url:`${poro}`})`}}></div>
+        <div>Username: {singleUser.username}</div>
+        <div>Email: {singleUser.email}</div>
+        <div>{singleUser.bio?`Bio: ${singleUser.bio}`:null}</div>
+        {/* <div>Bio: {singleUser.bio}</div> */}
+        {/* <div>Simoleans: {singleUser.currentSimoleans}</div> */}
         <div>Follower: {singleUser.followers.length}</div> 
         <div>Following: {singleUser.following.length}</div>
-    <li>
+
+
+        {currentUser && currentUser.id !== singleUser.id && (
+                <>
+                <div  className={css.singleuserfollow}>
+                    <FollowButton  userId={singleUserid}/>
+                </div>
+                </>
+        )}
+        </div>
+        <div className={css.singleusercomments}>
         <GetAllCommentsforSingleUser userId={singleUserid} />
-    </li>
-    <li>
-        <FollowButton  userId={singleUserid}/>
-    </li>
+        </div>
         </div>
 
         </>
