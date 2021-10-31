@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import UsersList from '../UserList/UsersList'
 import GetAllGameTables from '../GameTableAll'
 import css from './singlehomepage.module.css'
@@ -8,8 +8,8 @@ import css from './singlehomepage.module.css'
 function SingleHomePage() {
 
 
-    const dispatch = useDispatch();
-    const history = useHistory();
+    // const dispatch = useDispatch();
+    // const history = useHistory();
 
     const currentUser = useSelector(state => state.session.user);
 

@@ -35,7 +35,7 @@ function EditCommentForm({ ...props }) {
 
       props.onClose()
     }
-    console.log(errors, 'errrrrrrrrrrrorrrrrrrrrrrrs')
+    // console.log(errors, 'errrrrrrrrrrrorrrrrrrrrrrrs')
   };
 
   return (

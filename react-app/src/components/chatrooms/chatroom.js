@@ -45,7 +45,7 @@ const Chatroom = (props) => {
         return (() => {
             socket.disconnect()
         })
-    }, []);
+    }, [room, user.username]);
 
     const updateChatInput = (e) => {
         setChatInput(e.target.value)

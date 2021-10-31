@@ -6,10 +6,10 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UserList/UsersList';
-import User from './components/User/User';
+// import User from './components/User/User';
 import Chat from './components/chat/chat';
-import TestGame from './components/testGame/testGame';
-import Test from './components/chatrooms/chatroom';
+// import TestGame from './components/testGame/testGame';
+// import Test from './components/chatrooms/chatroom';
 import { authenticate } from './store/session';
 import HomePage from './components/homepage'
 import GetAllGameTables from './components/GameTableAll'

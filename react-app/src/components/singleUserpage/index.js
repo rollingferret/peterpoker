@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { getSingleUserThunk } from '../../store/users';
 import GetAllCommentsforSingleUser from '../../components/commentDisplay'
 import FollowButton from '../Follow'

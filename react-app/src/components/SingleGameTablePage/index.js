@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getSingleGametablesThunk } from '../../store/gametables';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import EditGameTableModal from '../EditGameTableForm'
 import DeleteGameTableModal from '../DeleteGameTable'
 import css from './index.module.css'
@@ -40,7 +40,7 @@ function SingleGameTablePage() {
     // console.log(singleTable,'999999999999999999999999')
     // console.log(singleTable.id,'999999999999999999999999')
 
-    console.log(allTables)
+    // console.log(allTables)
     if (Object.keys(allTables).length !== 0 && allTables[singleGameTableId] === undefined) {
       history.push("/gametables");
     }
