@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import css from './NavBar.module.css';
 import { useSelector } from "react-redux";
+import LoginModal from '../loginmodal'
 
 
 const NavBar = () => {
@@ -16,7 +17,10 @@ const NavBar = () => {
       );
     } else {
       return (
-        <NavLink to="/login" className={css.navlogin}>Log In</NavLink>
+        <>
+        <LoginModal className={css.navlogin}/>
+        {/* <NavLink to="/login" className={css.navlogin}>Log In</NavLink> */}
+        </>
       );
     }
   };

@@ -32,8 +32,8 @@ function GetAllCommentsforSingleUser({ userId }) {
   const commentSection = Object.values(currentComments)?.map((comment) => {
 
 
-    console.log(comment, 'insiiiiiiiiiiiiide')
-    console.log(comment.content, 'insiiiiiiiiiiiiide')
+    // console.log(comment, 'insiiiiiiiiiiiiide')
+    // console.log(comment.content, 'insiiiiiiiiiiiiide')
 
     return (
     <>

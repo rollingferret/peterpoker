@@ -1,0 +1,77 @@
+.addoutterdiv {
+    height: 30vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    /* background-color: red; */
+
+}
+
+.adddivform {
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: #92CD41; */
+    border-radius: 10px;
+    /* background-color: red; */    
+    background-color: #92CD41;
+
+
+
+}
+
+.inneradddivs2 {
+
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font: 1.75rem "Press start 2P";
+    /* background-color: red; */
+
+}
+
+.inneradddivs {
+    height: 30%;
+    /* background-color: blue; */
+
+}
+
+
+.gametablecontent {
+    height: 100%;
+    width: 100%;
+    font: 1.25rem "Press start 2P";
+    text-align: center;
+
+}
+
+.buttondivmodal {
+
+    width: 100%;
+    height: 100%;
+    font: 1.5rem "Press start 2P";
+    transition-duration:500ms;
+    /* background-color: #92CD41; */
+    border-radius: 0px 0px 10px 10px;
+    border: 0px;
+    background-color: #92CD41;
+
+}
+
+.buttondivmodal:hover {
+    /* background-color: green; */
+    cursor: pointer;
+    font-size: 2rem;
+    background-color: green;
+}
+
+.editgamegame {
+    background-color: red;
+    font-size: 1rem;
+
+}

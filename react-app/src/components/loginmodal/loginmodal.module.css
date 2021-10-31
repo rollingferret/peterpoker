@@ -1,0 +1,11 @@
+.outtermodaldiv {
+	background-color: #92CD41;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	border: 3px solid black;
+	border-radius: 15px;
+	font-size: larger;
+}
