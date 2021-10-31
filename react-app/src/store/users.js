@@ -93,7 +93,7 @@ export const getSingleUserThunk = (id) => async (dispatch) => {
 export const getMostUsersThunk = () => async (dispatch) => {
   const res = await fetch("/api/users");
 
-  console.log(res, 'check hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+  // console.log(res, 'check hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
 
   // if (res.ok) {
   //   const query = await res.json();

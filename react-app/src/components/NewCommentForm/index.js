@@ -38,8 +38,23 @@ function CommentForm() {
           setErrors(res);
         }
 
-        console.log(res, '77777777777777777777777777777777777777')
-        console.log(errors, '999999999999999999999999999999999999999999999');
+        // if (res.ok) {
+        //   setContent("");
+        // }
+        if (!res) {
+
+          setContent("");
+          setErrors([]);
+
+        }
+
+        // if (!errors) {
+        //   setContent("");
+
+        // }
+
+        // console.log(res, '77777777777777777777777777777777777777')
+        // console.log(errors, '999999999999999999999999999999999999999999999');
 
 
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { getCommentByIdThunk } from "../../store/comments";
 import css from './commendDisplay.module.css'
 import CommentForm from '../NewCommentForm'
@@ -37,7 +37,7 @@ function GetAllCommentsforSingleUser({ userId }) {
 
   }, [dispatch, userId]);
 
-  console.log(setUsers)
+  // console.log(setUsers)
 
 
 
@@ -65,7 +65,7 @@ function GetAllCommentsforSingleUser({ userId }) {
 
     let username;
     let useravatar;
-    const userComponents = users.map((user) => {
+    users.map((user) => {
 
       // console.log(user.id, '1111111111111111111111111111111111')
       // console.log(comment.commenter_user_id, '222222222222222222222222222222222222222')
@@ -83,7 +83,7 @@ function GetAllCommentsforSingleUser({ userId }) {
     <div className={css.commentdisplayoutter}>
     <div className={css.commentdisplaysetter}>
     <div className={css.commentprofile} style={{backgroundImage: `url(${useravatar?useravatar:`${poro}`})`}}></div>
-    <div className={css.username}>{username}:</div>
+    <div className={css.username}>{username}</div>
     <div className={css.commentcontent}>{comment.content}</div>
     </div>
 
