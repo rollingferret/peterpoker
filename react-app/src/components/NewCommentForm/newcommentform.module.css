@@ -1,0 +1,77 @@
+.outtermostdiv {
+    /* background-color: red; */
+    height: 100%;
+    width: 100%;
+    display: flex;  
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.deletecommentbuttoncss {
+
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+}
+
+.deletebuttoninnercss {
+    /* background-color: blue; */
+    background-color: #f1f1f1;
+    width: 70%;
+    height: 100%;
+    font: 1.25rem "Press start 2P";
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.deletebuttonsubmitcss {
+
+    /* background-color: green; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 30%;
+    /* width: 100%; */
+    height: 100%;
+
+    background-color: #92CD41;
+    transition-duration:500ms;
+    border-radius: 0px 0px 10px 0px;
+    font: 1.5rem "Press start 2P";
+
+}
+
+.deletebuttonsubmitcss:hover {
+
+    background-color: green;
+    cursor: pointer;
+    font-size: 1.75rem;
+}
+
+.deletebuttoninnercss:focus {
+    background-color:#a4e4fc;
+}   
+
+.deletebuttoninnercss:hover {
+    cursor: pointer;
+    background-color:#a4e4fc;
+}
+
+.editgamegame {
+    background-color: red;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

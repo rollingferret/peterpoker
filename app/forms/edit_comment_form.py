@@ -7,5 +7,5 @@ from wtforms.validators import Length
 
 
 class EditCommentForm(FlaskForm):
-    content = TextField("Content", [DataRequired(), Length(min=1, max=100])
+    content = TextField("Content", [DataRequired(), Length(min=1, max=100)])
     submit = SubmitField("Edit")
