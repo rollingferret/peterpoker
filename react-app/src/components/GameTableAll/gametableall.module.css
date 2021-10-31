@@ -109,9 +109,11 @@
 }
 
 #addtablecard2 {
+    background-color: #00fcfc;
 }
 
 #addtablecard2:hover {
     transition-duration:500ms;
-    background-color: #92CD41;
+    background-color: #008888;
+    cursor: pointer;
 }

@@ -13,6 +13,8 @@ const Chat = () => {
         // open socket connection
         // create websocket
         // local socket
+
+
         socket = io();
 
         // heroku socket
@@ -33,12 +35,13 @@ const Chat = () => {
     };
 
     const sendChat = (e) => {
-        e.preventDefault()
-        socket.emit("chat", { user: user.username, msg: chatInput });
+        e.preventDefault();
+
+        socket.emit("chat", { user: 'Guest', msg: chatInput });
         setChatInput("")
     }
 
-    return (user && (
+    return (
         <>
         <div>TEST</div>
         <div>
@@ -57,7 +60,7 @@ const Chat = () => {
         </div>
         <div>TEST</div>
         </>
-    )
+    
     )
 };
 
