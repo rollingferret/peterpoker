@@ -92,7 +92,9 @@
 
 .gamelistvertcenter {
 
-    margin: 25px;
+    margin: 20px;
+    height: calc(100vh - 140px);
+
 
 }
 

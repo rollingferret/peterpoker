@@ -25,6 +25,9 @@ const Chat = () => {
         socket.on("chat", (chat) => {
             setMessages(messages => [...messages, chat])
         })
+
+        socket.emit("chat", { user: 'Guest', msg: 'hello!' });
+        setChatInput("")
         // when component unmounts, disconnect
         return (() => {
             socket.disconnect()
