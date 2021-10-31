@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { io } from 'socket.io-client';
+import css from './globalchat.module.css'
 
 let socket;
 
@@ -13,6 +14,8 @@ const Chat = () => {
         // open socket connection
         // create websocket
         // local socket
+
+
         socket = io();
 
         // heroku socket
@@ -33,31 +36,49 @@ const Chat = () => {
     };
 
     const sendChat = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        if (chatInput === ''){
+            window.alert('Please have something to say!')
+        } else {
+        if (!user) {
+        socket.emit("chat", { user: 'Guest', msg: chatInput });
+        setChatInput("")
+        } else {
         socket.emit("chat", { user: user.username, msg: chatInput });
         setChatInput("")
+        }
+    }
     }
 
-    return (user && (
+    return (
         <>
-        <div>TEST</div>
-        <div>
-            <div>hello
+        <div className={css.chatcenter}>
+        <div className={css.chatoutterdiv}>
+            <div className={css.chatoutterdivreverse}>
                 {messages.map((message, ind) => (
-                    <div key={ind}>{`${message.user}: ${message.msg}`}</div>
+                    <div key={ind} className={css.chatwordbubble}>{`${message.user}: ${message.msg}`}</div>
                 ))}
             </div>
-            <form onSubmit={sendChat}>
+            </div>
+            <div className={css.chatinputdiv}>
+            <div className={css.chatinputcenter}>
+            <form onSubmit={sendChat} className={css.chatform}>
+            <div className={css.chatcentering}>
+
                 <input
                     value={chatInput}
                     onChange={updateChatInput}
+                    className={css.chatinput}
                 />
-                <button type="submit">Send</button>
+            </div>
+                <button type="submit" className={css.sendit}>Send</button>
             </form>
         </div>
-        <div>TEST</div>
+        </div>
+        </div>
+
         </>
-    )
+    
     )
 };
 

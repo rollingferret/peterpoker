@@ -57,3 +57,54 @@
     height: calc(50vh - 100px);
     width: 70%;
 }
+
+.homepageoutteroutterdiv {
+
+    height: calc(100vh - 150px);
+    width: 100vw;
+    position: relative;
+    top: -20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.homepagechatsignupdiv {
+    /* background-color: red;   */
+    /* height: 100%; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.homepagechat {
+
+    width: 50%;
+    background-color: #f1f1f1;
+    border: 3px solid black;
+    border-radius: 15px;
+    margin-right: 15px;
+    height: 650px;
+    padding: 15px;
+}
+
+.homepagesignup {
+
+    width: 40%;
+    height: 650px;
+    /* background-color: blue; */
+    border: 3px solid black;
+    border-radius: 15px;
+    margin-left: 15px;
+    padding: 15px;
+
+
+}
+
+.homepagewordsmeet {
+
+    position: relative;
+    top: -50px;
+    font-size: 1.25rem;
+}

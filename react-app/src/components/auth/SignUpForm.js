@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { login } from "../../store/session";
+import css from './signupform.module.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -53,58 +54,92 @@ const SignUpForm = () => {
   }
 
   return (
-    <>
-    <form onSubmit={onSignUp}>
-      <div>
+    <>  
+    <div className={css.addoutterdiv}>
+
+    <form onSubmit={onSignUp} className={css.adddivform}>
+      <div className={css.inneradddivs2}>
+          <div className={css.signupwords}>Join now!</div>
+          <div className={css.editgamegame}>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+      </div>
+
+
+
+      {/* <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
-      <div>
-        <label>User Name</label>
+      </div> */}  
+      <div className={css.inneradddivs}>
+      <div className={css.signupchunks}>
+        {/* <label>User Name</label> */}
         <input
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
           required={true}
+          placeholder={'Username'}
+          className={css.signupdiv}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+      <div className={css.signupchunks}>
+        {/* <label>Email</label> */}
         <input
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
-          required={true}
+          required={true} 
+          placeholder={'Email'}
+          className={css.signupdiv}
+
+
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+      <div className={css.signupchunks}>
+        {/* <label>Password</label> */}
         <input
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
           required={true}
+          placeholder={'Password'}
+          className={css.signupdiv}
+
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+      <div className={css.signupchunks}>
+        {/* <label>Repeat Password</label> */}
         <input
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
+          placeholder={'Repeat Password'}
+          className={css.signupdiv}
+
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      </div>
+      <div className={css.inneradddivs2}>
+
+      <button type='submit' className={css.buttondivmodal}>Sign Up</button>
+      </div>
     </form>
-        <button onClick={demoUser}>
+    <div className={css.inneradddivs2} id={css.topborderlinediv}>
+
+        <button onClick={demoUser} className={css.buttondivmodal} id={css.bottomsignup}>
         Demo User
     </button>
+    </div>
+    </div>
     </>
   );
 };

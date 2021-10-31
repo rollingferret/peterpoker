@@ -1,0 +1,103 @@
+.addoutterdiv {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+}
+
+.adddivform {
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: #92CD41; */
+    border-bottom: 2px solid black;
+
+}
+
+.inneradddivs2 {
+
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font: 1.75rem "Press start 2P";
+}
+
+.inneradddivs {
+    height: 70%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+
+.gametablecontent {
+    height: 100%;
+    width: 100%;
+    font: 1.25rem "Press start 2P";
+    text-align: center;
+
+}
+
+.buttondivmodal {
+
+    width: 100%;
+    height: 100%;
+    font: 1.2rem "Press start 2P";
+    transition-duration:500ms;
+    background-color: #92CD41;
+    border: 0px;
+}
+
+.buttondivmodal:hover {
+    background-color: green;
+    cursor: pointer;
+    font-size: 1.75rem;
+}
+
+.editgamegame {
+    background-color: red;
+    font-size: 1rem;
+
+}
+
+#bottomsignup {
+
+    border-radius: 0px 0px 10px 10px;
+
+}
+
+.signupwords {
+    border-bottom: 3px solid black;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #a4e4fc;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.signupdiv {
+
+    height: 100%;
+    width: 100%;
+    font: 1.25rem "Press start 2P";
+    text-align: center;
+    /* background-color: red; */
+}   
+
+.signupchunks {
+
+    /* background-color:blue; */
+    width: 100%;
+    height: 100%;
+}
