@@ -16,6 +16,7 @@ function HomePage() {
     <div className={css.homepageoutteroutterdiv}>
     {/* <div className={css.homepageuserlist}><UsersList /></div>
     <div className={css.homepagegametables}><GetAllGameTables /></div>  */}
+    <div className={css.homepagewordsmeet}>Meet new friends to chat with!</div>
     <div className={css.homepagechatsignupdiv}>
     <div className={css.homepagechat}><Chat /></div>
     <div className={css.homepagesignup}><SignUpForm /></div>

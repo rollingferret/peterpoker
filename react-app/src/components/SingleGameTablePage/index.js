@@ -38,7 +38,10 @@ function SingleGameTablePage() {
 
 
     if (!singleTable) {
+        // return null;
+        history.push("/gametables");
         return null;
+
     } else {
     return (
         <>

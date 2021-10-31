@@ -1,0 +1,124 @@
+.chatcenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    /* background-color: black; */
+    margin: 0px;
+    border-radius: 15px;
+}
+
+.chatoutterdiv {
+    border: 3px solid black;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: #b8f8b8;
+    margin-bottom: 20px;
+}
+
+.chatoutterdiv::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.chatwordbubble {
+
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    text-align: left;
+    font-size: 1rem;
+
+
+}
+
+.chatoutterdivreverse {
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+.chatform {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    /* background-color: black; */
+}
+
+
+.chatinput {
+    display: flex;
+    width: 100%;
+    font: 1.25rem "Press start 2P";
+    border-radius: 15px;
+    padding: 15px;
+    margin-right: 15px;
+    transition-duration:500ms;
+}
+
+.chatinput:focus {
+    background-color:#a4e4fc;
+}   
+
+.chatinput:hover {
+    cursor: pointer;
+    background-color:#a4e4fc;
+}
+
+.sendit {
+    width: 30%;
+    font: 1.25rem "Press start 2P";
+    transition-duration:500ms;
+    border-radius: 15px;
+    background-color: #f1f1f1;
+}
+
+.sendit:hover {
+    background-color: #00b800;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.chatinputcenter {
+    display: flex;
+    justify-content: center;
+}
+
+.chatcentering {
+    display: flex;
+    width: 100%;
+    /* background-color:black; */
+}
+
+.chatinputdiv {
+    width: 100%;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .sendit {
+        padding: 10px;
+        font-size: 1rem;
+    }   
+
+    .chatinput {
+        margin-right: 8px;
+    }
+    .chatwordbubble {
+
+        font-size: 1rem;
+    
+    
+    }
+    .sendit:hover {
+        font-size: 1.25rem;
+    }
+}
