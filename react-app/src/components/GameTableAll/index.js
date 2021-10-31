@@ -33,9 +33,9 @@ function GetAllGameTables() {
         {/* <EditGameTableModal gametableId={table.id}/>
         <DeleteGameTableModal gametableId={table.id}/> */}
 
-        <Link to={`/gametables/${table.id}`}>
+        <Link to={`/gametables/${table.id}`} className={css.gamewindow}>
           <div>{table.tableName}</div>
-          <div>{table.players===null?table.players:'No Current Players'}</div>
+          {/* <div>{table.players===null?table.players:'No Current Players'}</div> */}
           <div>{table.isActive}</div>
           <div>{table.updated_at}</div>
         </Link>
@@ -47,7 +47,7 @@ function GetAllGameTables() {
                   <DeleteGameTableModal gametableId={table.id} />
                 </>
               )}
-        </div>
+      </div>
       </div>
     );
 

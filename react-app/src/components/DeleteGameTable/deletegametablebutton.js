@@ -1,13 +1,18 @@
 import { useDispatch } from "react-redux";
 import { delGametableThunk } from "../../store/gametables";
 import styles from "./deletegametable.module.css";
+import { useHistory } from "react-router-dom";
+
 
 function DeleteGameTableButton(props) {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     dispatch(delGametableThunk(props.gametableId));
+    history.push("/gametables");
   };
 
   return (

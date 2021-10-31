@@ -68,7 +68,7 @@ export const addGameTableThunk = (table) => async (dispatch) => {
 export const updateGameTableThunk =
   ({ id, tableName }) =>
   async (dispatch) => {
-    const res = await fetch(`/api/gametables/edit/${id}`, {
+    const response = await fetch(`/api/gametables/edit/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -76,11 +76,26 @@ export const updateGameTableThunk =
       body: JSON.stringify({ tableName }),
     });
 
-    if (res.ok) {
-      const query = await res.json();
-      dispatch(editGametableAction(query));
-      return { ok: true };
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(editGametableAction(data))
+      return null;
+    } else if (response.status < 500) {
+      const data = await response.json();
+      if (data.errors) {
+        return data.errors;
+      }
+    } else {
+      return ['An error occurred. Please try again.']
     }
+
+    // if (res) {
+    //   console.log(res,'resssssssssssssssssssssssssinthunk')
+    //   const query = await res.json();
+    //   dispatch(editGametableAction(query));
+    //   return { ok: true };
+    // }
   };
 
 export const delGametableThunk = (gametableId) => async (dispatch) => {

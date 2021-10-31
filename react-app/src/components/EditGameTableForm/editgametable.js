@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateGameTableThunk } from "../../store/gametables";
+import css from './editgametable.module.css'
 
 function EditGameTableForm({ ...props }) {
   const dispatch = useDispatch();
@@ -9,10 +10,12 @@ function EditGameTableForm({ ...props }) {
   
   const [tableName, setTableName] = useState(`${currentTableName.tableName}`);
 
+  const [errors, setErrors] = useState([]);
+
   // const [tableName, setTableName] = useState("");
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let edited_gametable = {
@@ -23,30 +26,47 @@ function EditGameTableForm({ ...props }) {
     // return dispatch(updateGameTableThunk(edited_gametable)).then(async () =>
     //   props.onClose()
 
-    return dispatch(updateGameTableThunk(edited_gametable))
+    const data = await dispatch(updateGameTableThunk(edited_gametable))
+
+    if (data) {
+      setErrors(data);
+    } else {
+
+      props.onClose()
+    }
+
+    // console.log(errors, 'erroooooooooooooooooooooooooos')
+
+    // return dispatch(updateGameTableThunk(edited_gametable))
     // );
   };
 
   return (
     <>
-      <div className="outtereditcommentdiv">
-        <form onSubmit={handleSubmit} className="commentdivform">
-          <div className="innercommentdivs-2">
+      <div className={css.outtereditcommentdiv}>
+
+        <form onSubmit={handleSubmit} className={css.commentdivform}>
+          <div className={css.innercommentdivs2}>
             <label>Edit Table Name</label>
+            <div className={css.editgamegame}>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
           </div>
-          <div className="innercommentdivs" id="topborderlinecommentdiv">
+          </div>
+          <div className={css.innercommentdivs} id={css.topborderlinecommentdiv}>
             <input
               type="tableName"
               // value={tableName}
               value={tableName}
               onChange={(e) => setTableName(e.target.value)}
               placeholder="Table Name"
-              className="contentcommentdiv"
+              className={css.contentcommentdiv}
               required={true}
             />
           </div>
-          <div className="innercommentdivs-2" id="topborderlinecommentdiv">
-            <button type="submit" className="buttoncommentdivmodal">
+          <div className={css.innercommentdivs2} id={css.topborderlinecommentdiv}>
+            <button type="submit" className={css.buttoncommentdivmodal}>
               Edit!
             </button>
           </div>
