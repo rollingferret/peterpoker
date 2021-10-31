@@ -1,0 +1,30 @@
+.outtermostdiv {
+    height: calc(100vh - 140px);
+    /* background-color: red; */
+    overflow-y: scroll;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: #f1f1f1;
+}
+
+.outtermostdiv::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.homepagelist {
+    display: flex;
+    margin: 40px;
+}
+
+.leftinnterlist {
+    width: 40%;
+    margin-right: 15px;
+}
+
+.rightinnterlist {
+    width: 60%;
+    margin-left: 15px;
+}

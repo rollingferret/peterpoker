@@ -19,6 +19,12 @@
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
+.tablecard:hover {
+    background-color: #3cbcfc;
+    /* cursor: pointer; */
+
+}
+
 
 .gamelistoutter {
     /* height: calc(100vh - 167px); */
@@ -61,6 +67,17 @@
     font-size: 1.25rem;
     margin: 25px;
     /* position: absolute; */
+    transition-duration:500ms;
+
+
+}
+
+
+.gamelistwords:hover {
+    font-size: 1.5rem;
+    /* background-color: red; */
+    /* border: 3px solid black; */
+    /* border-radius: 50%; */
 
 }
 
@@ -92,7 +109,9 @@
 
 .gamelistvertcenter {
 
-    margin: 25px;
+    margin: 20px;
+    height: calc(100vh - 140px);
+
 
 }
 
@@ -114,6 +133,6 @@
 
 #addtablecard2:hover {
     transition-duration:500ms;
-    background-color: #008888;
+    background-color: #b8f8d8;
     cursor: pointer;
 }
