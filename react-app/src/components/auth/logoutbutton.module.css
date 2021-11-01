@@ -9,4 +9,9 @@
 	border-radius: 15px;
 	font-size: larger;
 	text-decoration: none;
+	transition-duration:500ms;
+}
+
+.navlogout:hover{
+	background-color: red;
 }
