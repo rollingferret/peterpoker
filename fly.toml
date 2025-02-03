@@ -21,6 +21,3 @@ primary_region = 'den'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 256
-
-[deploy]
-  release_command = "flask db upgrade && flask seed all"
