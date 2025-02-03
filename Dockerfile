@@ -17,7 +17,7 @@ ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
 
-EXPOSE 8080
+# EXPOSE 8080
 
 WORKDIR /var/www
 COPY . .
@@ -28,8 +28,8 @@ RUN pip install -r requirements.txt
 RUN pip install psycopg2
 
 # Run flask environment
-CMD gunicorn app:app
-CMD gunicorn --worker-class eventlet -w 1 app:app
+# CMD gunicorn app:app
+CMD gunicorn --worker-class eventlet -w 1 --bind 0.0.0.0:8080 app:app
 
 # CMD gunicorn -k eventlet -w 1 app:app
 
