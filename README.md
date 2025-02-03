@@ -4,7 +4,7 @@ PetersPlace was inspired by PartyPoker of old but due to time limitations the po
 
 ## Live site
 
-https://peterpoker.herokuapp.com/
+https://peterpoker.fly.dev/
 
 ## Technologies used
 
