@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for peterpoker on 2025-02-03T00:40:39Z
+# fly.toml app configuration file generated for peterpoker on 2025-02-03T01:08:06Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -17,10 +17,6 @@ primary_region = 'den'
   processes = ['app']
 
 [[vm]]
-# memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
-  memory_mb = 256
-
-[deploy]
-  release_command = "flask db upgrade && flask seed all"
+  memory_mb = 1024
